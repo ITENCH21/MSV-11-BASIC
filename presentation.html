@@ -65,15 +65,35 @@ body{padding:18px}
 .stat strong{display:block;font-size:28px;line-height:1;font-weight:900;color:#fff}
 .stat span{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ice);margin-top:7px}
 .cover-card{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(180deg,rgba(15,27,38,.86),rgba(22,39,55,.92));
+  border:1px solid rgba(255,255,255,.18);
   border-radius:18px;
-  padding:18px;
+  padding:20px 20px 18px;
+  min-height:112mm;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
 }
-.cover-card h3{margin:0 0 12px;font-size:16px}
-.cover-list{display:grid;gap:10px}
-.cover-list div{font-size:13px;line-height:1.45;color:#dbe6ee;padding-left:14px;position:relative}
-.cover-list div::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.cover-card h3{margin:0 0 14px;font-size:18px;color:#fff;letter-spacing:.01em}
+.cover-list{display:grid;gap:12px}
+.cover-list div{
+  display:block;
+  font-size:14px;
+  line-height:1.5;
+  color:#e6eef4;
+  padding-left:18px;
+  position:relative;
+  text-shadow:0 1px 2px rgba(0,0,0,.22);
+}
+.cover-list div::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 4px rgba(224,82,6,.16);
+}
 .footer-line{position:absolute;left:18mm;right:18mm;bottom:10mm;display:flex;justify-content:space-between;font-size:10px;color:#8ca8ba}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14mm}
 .panel{
