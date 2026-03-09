@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" role="img" aria-labelledby="title desc">
+  <title id="title">Ключевая идея</title>
+  <desc id="desc">Одна платформа заменяет несколько специализированных судов малой миссии. Смена модуля выполняется краном с борта носителя без захода в порт. Транспортировка в ISO 20/40 контейнере и разборка на три части. Снижение стоимости морских миссий в 3-5 раз по сравнению с классическим судном.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10202d" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#163246" stop-opacity=".92"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="760" height="700" rx="34" fill="url(#bg)" filter="url(#shadow)"/>
+  <text x="52" y="88" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Ключевая идея</text>
+
+  <circle cx="66" cy="138" r="7" fill="#E05206"/>
+  <text x="88" y="144" fill="#E6EEF4" font-family="Arial, sans-serif" font-size="24">
+    <tspan x="88" dy="0">Одна платформа заменяет несколько</tspan>
+    <tspan x="88" dy="34">специализированных судов малой миссии.</tspan>
+  </text>
+
+  <circle cx="66" cy="242" r="7" fill="#E05206"/>
+  <text x="88" y="248" fill="#E6EEF4" font-family="Arial, sans-serif" font-size="24">
+    <tspan x="88" dy="0">Смена модуля выполняется краном с борта</tspan>
+    <tspan x="88" dy="34">носителя без захода в порт.</tspan>
+  </text>
+
+  <circle cx="66" cy="346" r="7" fill="#E05206"/>
+  <text x="88" y="352" fill="#E6EEF4" font-family="Arial, sans-serif" font-size="24">
+    <tspan x="88" dy="0">Транспортировка в ISO 20'/40' контейнере</tspan>
+    <tspan x="88" dy="34">и разборка на три части.</tspan>
+  </text>
+
+  <circle cx="66" cy="450" r="7" fill="#E05206"/>
+  <text x="88" y="456" fill="#E6EEF4" font-family="Arial, sans-serif" font-size="24">
+    <tspan x="88" dy="0">Снижение стоимости морских миссий</tspan>
+    <tspan x="88" dy="34">в 3-5 раз по сравнению с классическим судном.</tspan>
+  </text>
+</svg>

@@ -68,37 +68,12 @@ body{padding:18px}
   background:linear-gradient(180deg,rgba(15,27,38,.86),rgba(22,39,55,.92));
   border:1px solid rgba(255,255,255,.18);
   border-radius:18px;
-  padding:20px 20px 18px;
+  padding:0;
   min-height:112mm;
   box-shadow:0 18px 40px rgba(0,0,0,.18);
+  overflow:hidden;
 }
-.cover-card h3{margin:0 0 14px;font-size:18px;color:#fff;letter-spacing:.01em}
-.cover-list{
-  margin:0;
-  padding:0;
-  list-style:none;
-  display:grid;
-  gap:12px;
-}
-.cover-list li{
-  font-size:14px;
-  line-height:1.5;
-  color:#e6eef4;
-  padding-left:18px;
-  position:relative;
-  text-shadow:0 1px 2px rgba(0,0,0,.22);
-}
-.cover-list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:8px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 0 4px rgba(224,82,6,.16);
-}
+.cover-card img{display:block;width:100%;height:112mm;object-fit:cover}
 .footer-line{position:absolute;left:18mm;right:18mm;bottom:10mm;display:flex;justify-content:space-between;font-size:10px;color:#8ca8ba}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14mm}
 .panel{
@@ -244,13 +219,7 @@ body{padding:18px}
           </div>
         </div>
         <div class="cover-card">
-          <h3>Ключевая идея</h3>
-          <ul class="cover-list">
-            <li>Одна платформа заменяет несколько специализированных судов малой миссии.</li>
-            <li>Смена модуля выполняется краном с борта носителя без захода в порт.</li>
-            <li>Транспортировка в ISO 20'/40' контейнере и разборка на три части.</li>
-            <li>Снижение стоимости морских миссий в 3-5 раз по сравнению с классическим судном.</li>
-          </ul>
+          <img src="assets/images/presentation-cover-card.svg" alt="Ключевая идея: одна платформа заменяет несколько специализированных судов малой миссии; смена модуля выполняется краном с борта носителя без захода в порт; транспортировка в ISO 20 40 контейнере и разборка на три части; снижение стоимости морских миссий в 3-5 раз по сравнению с классическим судном.">
         </div>
       </div>
       <div class="footer-line">
