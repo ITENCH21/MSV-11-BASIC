@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASV-11 Presentation</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --orange:#E05206;
+  --navy:#1B2A38;
+  --accent:#1B6FA8;
+  --ice:#88BBDD;
+  --sand:#F4F7FA;
+  --text:#12202d;
+  --muted:#5a6774;
+  --line:#d8e1ea;
+}
+html,body{margin:0;padding:0;background:#dfe8ee;color:var(--text);font-family:Inter,Arial,sans-serif}
+body{padding:18px}
+.deck{display:flex;flex-direction:column;gap:18px;align-items:center}
+.slide{
+  width:297mm;
+  min-height:210mm;
+  background:#fff;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(18,32,45,.16);
+  page-break-after:always;
+}
+.slide:last-child{page-break-after:auto}
+.pad{padding:18mm 18mm 16mm}
+.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--orange);font-weight:800;margin-bottom:10px}
+.title{font-size:34px;line-height:1.02;font-weight:900;letter-spacing:-.04em;margin:0 0 12px}
+.title span{color:var(--accent)}
+.lead{font-size:15px;line-height:1.55;color:#d8e4ed;max-width:110mm}
+.sublead{font-size:15px;line-height:1.58;color:var(--muted);max-width:126mm}
+.cover{
+  background:
+    linear-gradient(120deg,rgba(27,42,56,.96) 0%,rgba(27,42,56,.78) 46%,rgba(27,42,56,.26) 100%),
+    url('assets/images/hero-front.webp') center/cover no-repeat;
+  color:#fff;
+}
+.cover::before{
+  content:"";
+  position:absolute;
+  inset:auto -80mm -80mm auto;
+  width:180mm;
+  height:180mm;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(224,82,6,.38),rgba(224,82,6,0));
+}
+.brand{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px}
+.brand-mark{font-size:28px;font-weight:900;letter-spacing:.08em;color:var(--orange)}
+.brand-note{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ice)}
+.cover-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18mm;align-items:end}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.stat{
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  border-radius:12px;
+  padding:14px 16px;
+  backdrop-filter:blur(6px);
+}
+.stat strong{display:block;font-size:28px;line-height:1;font-weight:900;color:#fff}
+.stat span{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ice);margin-top:7px}
+.cover-card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:18px;
+}
+.cover-card h3{margin:0 0 12px;font-size:16px}
+.cover-list{display:grid;gap:10px}
+.cover-list div{font-size:13px;line-height:1.45;color:#dbe6ee;padding-left:14px;position:relative}
+.cover-list div::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.footer-line{position:absolute;left:18mm;right:18mm;bottom:10mm;display:flex;justify-content:space-between;font-size:10px;color:#8ca8ba}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14mm}
+.panel{
+  background:linear-gradient(180deg,#fff,var(--sand));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px 18px;
+}
+.panel.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+.panel h3{margin:0 0 12px;font-size:20px;line-height:1.1}
+.bullet-list{display:grid;gap:11px}
+.bullet{
+  font-size:13px;
+  line-height:1.48;
+  color:var(--muted);
+  padding-left:16px;
+  position:relative;
+}
+.dark .bullet{color:#c6d7e4}
+.bullet::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:2px;background:var(--orange)}
+.hero-mini{
+  width:100%;
+  height:78mm;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 16px 36px rgba(18,32,45,.16);
+}
+.metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.metric strong{display:block;font-size:24px;color:var(--navy);line-height:1}
+.metric span{display:block;margin-top:7px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
+.module-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.module{
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
+.module img{display:block;width:100%;height:42mm;object-fit:cover}
+.module-body{padding:11px 12px 13px}
+.module-body h4{margin:0 0 6px;font-size:13px;line-height:1.2}
+.module-body p{margin:0;font-size:10.5px;line-height:1.45;color:var(--muted)}
+.accent-strip{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:12mm;
+  align-items:start;
+}
+.spec-table{display:grid;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.spec-row{display:grid;grid-template-columns:1fr 1.3fr}
+.spec-row:nth-child(odd){background:#fbfdff}
+.spec-row div{padding:10px 12px;font-size:12px;line-height:1.35;border-bottom:1px solid var(--line)}
+.spec-row:last-child div{border-bottom:none}
+.spec-row div:first-child{font-weight:700;color:var(--accent);border-right:1px solid var(--line)}
+.flow{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:9px;
+  margin-top:14px;
+}
+.flow-step{
+  background:var(--navy);
+  color:#fff;
+  border-radius:16px;
+  padding:14px 12px;
+  min-height:34mm;
+}
+.flow-step strong{display:block;font-size:20px;color:var(--orange);margin-bottom:8px}
+.flow-step p{margin:0;font-size:11px;line-height:1.4;color:#c7d8e4}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.photo{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  min-height:54mm;
+}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.photo label{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  background:rgba(27,42,56,.72);
+  color:#fff;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:6px 8px;
+  border-radius:999px;
+}
+.app-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:12mm}
+.tag-board{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:8px 10px;border-radius:999px;background:#eef4f8;border:1px solid var(--line);font-size:11px;font-weight:700;color:var(--navy)}
+.log-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.log-grid img{width:100%;height:50mm;object-fit:cover;border-radius:16px}
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.phase{background:#fff;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:16px;padding:14px}
+.phase strong{display:block;font-size:13px;margin-bottom:6px}
+.phase span{display:block;font-size:20px;font-weight:900;color:var(--navy);margin-bottom:7px}
+.phase p{margin:0;font-size:10.5px;line-height:1.45;color:var(--muted)}
+.contact-bar{
+  margin-top:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:linear-gradient(90deg,var(--navy),#243d52);
+  color:#fff;
+}
+.contact-bar strong{font-size:16px}
+.contact-bar span{font-size:12px;color:#bed1de}
+.contact-bar em{font-style:normal;color:#ffb48d;font-weight:800}
+@page{size:A4 landscape;margin:0}
+@media print{
+  html,body{background:#fff}
+  body{padding:0}
+  .deck{gap:0}
+  .slide{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<main class="deck">
+  <section class="slide cover">
+    <div class="pad">
+      <div class="brand">
+        <div>
+          <div class="brand-mark">ASV-11</div>
+          <div class="brand-note">WestSeal Arctic Systems</div>
+        </div>
+        <div class="eyebrow">Autonomous Ice-Class Surface Vessel</div>
+      </div>
+      <div class="cover-grid">
+        <div>
+          <h1 class="title">Автономный катамаран <span>ледового класса</span></h1>
+          <p class="lead">Универсальная беспилотная платформа для арктических исследований, гидрографии, подводной инспекции, экологического мониторинга и работы со сменными модульными кассетами.</p>
+          <div class="stats">
+            <div class="stat"><strong>11 м</strong><span>Длина корпуса</span></div>
+            <div class="stat"><strong>4.5 сут</strong><span>Автономность</span></div>
+            <div class="stat"><strong>6 т</strong><span>Полезная нагрузка</span></div>
+            <div class="stat"><strong>Ice-C</strong><span>Ледовый класс</span></div>
+          </div>
+        </div>
+        <div class="cover-card">
+          <h3>Ключевая идея</h3>
+          <div class="cover-list">
+            <div>Одна платформа заменяет несколько специализированных судов малой миссии.</div>
+            <div>Смена модуля выполняется краном с борта носителя без захода в порт.</div>
+            <div>Транспортировка в ISO 20'/40' контейнере и разборка на три части.</div>
+            <div>Снижение стоимости морских миссий в 3-5 раз по сравнению с классическим судном.</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-line">
+        <span>ASV-11 Project Presentation</span>
+        <span>westseal.tech</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="pad">
+      <div class="eyebrow">Проблема и решение</div>
+      <div class="grid-2">
+        <div>
+          <h2 class="title">Почему рынку нужен <span>ASV-11</span></h2>
+          <p class="sublead">Традиционные морские экспедиции дороги, медленны в подготовке и несут прямой риск для экипажа в тяжёлых погодных условиях Арктики.</p>
+          <div class="panel" style="margin-top:16px">
+            <h3>Основные ограничения классического подхода</h3>
+            <div class="bullet-list">
+              <div class="bullet">Высокая стоимость исследовательского судна с экипажем и большим расходом топлива.</div>
+              <div class="bullet">Сложная логистика доставки в удалённые точки, зависимость от порта и погоды.</div>
+              <div class="bullet">Невозможность быстро переключаться между типами морских задач в рамках одной миссии.</div>
+              <div class="bullet">Ограничения по безопасности людей при штормах, льдах и длительной автономной работе.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img class="hero-mini" src="assets/images/main-side-title.webp" alt="ASV-11 общий вид">
+          <div class="panel dark" style="margin-top:14px">
+            <h3>Что меняет платформа</h3>
+            <div class="bullet-list">
+              <div class="bullet">Беспилотная эксплуатация без размещения людей на борту ASV-11.</div>
+              <div class="bullet">Двойные азиподы и RTK + INS + LBL/USBL для точного позиционирования.</div>
+              <div class="bullet">Пять типов сменных кассет под гидрологию, грунт, станции, ROV и буксируемые системы.</div>
+              <div class="bullet">Развёртывание от судна-носителя с минимальным временем переоснащения.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="pad">
+      <div class="eyebrow">Платформа</div>
+      <div class="accent-strip">
+        <div>
+          <h2 class="title">Универсальная платформа и <span>ТТХ</span></h2>
+          <p class="sublead">ASV-11 сочетает грузоподъёмность, запас автономности и унифицированный интерфейс для установки сменных модулей в открытом море.</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>2×200 кВт</strong><span>Дизель-генераторы</span></div>
+            <div class="metric"><strong>250 кВт·ч</strong><span>Буферные АКБ</span></div>
+            <div class="metric"><strong>20.9 м²</strong><span>Палуба</span></div>
+            <div class="metric"><strong>500 + 200 кг</strong><span>Лебёдки</span></div>
+            <div class="metric"><strong>1200×800 мм</strong><span>Гнездо кассеты</span></div>
+            <div class="metric"><strong>≤ 300 кг</strong><span>Масса модуля</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="spec-table">
+            <div class="spec-row"><div>Тип</div><div>Автономный катамаран ледового класса</div></div>
+            <div class="spec-row"><div>Движитель</div><div>2 азиподные колонки, разворот на месте</div></div>
+            <div class="spec-row"><div>Навигация</div><div>RTK GPS + INS + LBL / USBL</div></div>
+            <div class="spec-row"><div>Модульный интерфейс</div><div>10 кВт, Ethernet 1 Гбит/с, оптоволокно</div></div>
+            <div class="spec-row"><div>Работа в море</div><div>Смена кассет в волнении до 3 баллов</div></div>
+            <div class="spec-row"><div>Логистика</div><div>Разборка на 3 части, ISO 20'/40'</div></div>
+            <div class="spec-row"><div>Задачи</div><div>Гидрография, геохимия, ROV, экология, донные станции</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="pad">
+      <div class="eyebrow">Сменные модули</div>
+      <h2 class="title">Пять типов оборудования на одной <span>базовой платформе</span></h2>
+      <div class="module-grid">
+        <article class="module">
+          <img src="assets/images/mod-geo.png" alt="Геохимический модуль">
+          <div class="module-body">
+            <h4>Геохимия / грунт</h4>
+            <p>Серийный отбор проб, трубки, дночерпатели, координатная привязка и автоматическая подача.</p>
+          </div>
+        </article>
+        <article class="module">
+          <img src="assets/images/mod-hydro.png" alt="Гидрологический модуль">
+          <div class="module-body">
+            <h4>Гидрология / CTD</h4>
+            <p>CTD-зонд, батометры Нискина, профиль температуры, солёности, кислорода и мутности.</p>
+          </div>
+        </article>
+        <article class="module">
+          <img src="assets/images/mod-oceanology.png" alt="Океанологический модуль">
+          <div class="module-body">
+            <h4>Донные станции</h4>
+            <p>Постановка и подъём 4-6 станций с акустическим релизом и буйковой системой обнаружения.</p>
+          </div>
+        </article>
+        <article class="module">
+          <img src="assets/images/mod-rov.png" alt="ROV модуль">
+          <div class="module-body">
+            <h4>ROV / ТНПА</h4>
+            <p>Спуск аппарата до 200 кг, ретрансляция связи, USBL-привязка и видеоинспекция.</p>
+          </div>
+        </article>
+        <article class="module">
+          <img src="assets/images/mod-geo2.png" alt="Буксируемый модуль">
+          <div class="module-body">
+            <h4>Буксируемые системы</h4>
+            <p>ГБО, профилограф, магнитометр и другие геофизические инструменты в одном модуле.</p>
+          </div>
+        </article>
+        <article class="module">
+          <img src="assets/images/cassette-new.png" alt="Кассета ASV-11">
+          <div class="module-body">
+            <h4>Единая кассета</h4>
+            <p>Силовой каркас, лебёдка и интерфейс питания/данных в едином типоразмере для быстрой замены.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="pad">
+      <div class="eyebrow">Механика замены</div>
+      <div class="grid-2">
+        <div>
+          <h2 class="title">Как работает <span>смена кассет</span></h2>
+          <div class="flow">
+            <div class="flow-step"><strong>01</strong><p>Кран судна-носителя захватывает ЭМ-площадку модуля.</p></div>
+            <div class="flow-step"><strong>02</strong><p>Модуль поднимается без ручной стропки и подводится к палубе ASV-11.</p></div>
+            <div class="flow-step"><strong>03</strong><p>4 конических фиксатора направляют кассету в штатное гнездо.</p></div>
+            <div class="flow-step"><strong>04</strong><p>Питание и данные подключаются автоматически при посадке.</p></div>
+          </div>
+          <div class="panel" style="margin-top:14px">
+            <h3>Преимущества схемы</h3>
+            <div class="bullet-list">
+              <div class="bullet">Смена задачи занимает минуты, а не сутки.</div>
+              <div class="bullet">Внутренний рабочий блок можно модернизировать без замены внешнего каркаса.</div>
+              <div class="bullet">Поломка одного модуля не выводит из строя всю платформу.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="photo-grid">
+            <div class="photo">
+              <img src="assets/images/module-lift-presentation.jpg" alt="Подъем модуля">
+              <label>Подъём</label>
+            </div>
+            <div class="photo">
+              <img src="assets/images/module-lower-presentation.jpg" alt="Спуск модуля">
+              <label>Спуск</label>
+            </div>
+            <div class="photo" style="grid-column:1 / -1;min-height:60mm">
+              <img src="assets/images/eco-module-presentation.jpg" alt="Модуль на платформе">
+              <label>Рабочая кассета на борту</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="pad">
+      <div class="eyebrow">Применение и логистика</div>
+      <div class="app-grid">
+        <div>
+          <h2 class="title">Задачи в нефтегазе, науке и <span>морском сервисе</span></h2>
+          <p class="sublead">Платформа закрывает типовые задачи обследования акваторий и инфраструктуры без отправки крупного исследовательского судна на каждую миссию.</p>
+          <div class="tag-board" style="margin-top:14px">
+            <div class="tag">Гидроакустическое картирование</div>
+            <div class="tag">Экологический мониторинг</div>
+            <div class="tag">Грунтовое опробование</div>
+            <div class="tag">ROV-инспекция</div>
+            <div class="tag">Патрулирование трубопроводов</div>
+            <div class="tag">Постановка донных станций</div>
+            <div class="tag">Сейсмика и профилограф</div>
+            <div class="tag">Арктические миссии</div>
+          </div>
+          <div class="timeline">
+            <div class="phase"><strong>Проектирование</strong><span>2-3 мес</span><p>КД, компоновка, регистр, 3D-модель.</p></div>
+            <div class="phase"><strong>Прототип</strong><span>3-5 мес</span><p>Корпус, азиподы, силовая установка, кассеты.</p></div>
+            <div class="phase"><strong>Испытания</strong><span>1-2 мес</span><p>Ходовые тесты и автономные сценарии.</p></div>
+            <div class="phase"><strong>Серия</strong><span>6+ мес</span><p>Коммерческий запуск и сервисная сеть.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <h3>Контейнерная логистика</h3>
+            <p style="font-size:13px;line-height:1.5;color:var(--muted);margin:0">ASV-11 разбирается на три транспортабельные части и доставляется в обычном ISO-контейнере без необходимости в негабаритной перевозке.</p>
+            <div class="log-grid">
+              <img src="assets/images/disassembled-deck.webp" alt="ASV-11 на палубе">
+              <img src="assets/images/disassembled-container.webp" alt="ASV-11 в контейнере">
+            </div>
+          </div>
+          <div class="contact-bar">
+            <div>
+              <strong>ASV-11 Project</strong>
+              <span>Презентационный PDF в стиле сайта</span>
+            </div>
+            <div><em>WestSeal</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

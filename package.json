@@ -4,6 +4,10 @@
   "private": true,
   "description": "Static presentation for ASV-11",
   "scripts": {
-    "start": "python3 -m http.server 4173"
+    "start": "python3 -m http.server 4173",
+    "render:presentation": "node scripts/render-presentation-pdf.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.6.1"
   }
 }
