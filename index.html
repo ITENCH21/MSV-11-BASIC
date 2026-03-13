@@ -1706,51 +1706,109 @@ window.addEventListener('scroll', () => {
     }
   }
   function preloadNext() {
-    ensureLoaded(videos[(cur + 1) % videos.length]);
+    const next = videos[(cur + 1) % videos.length];
+    const src = next.dataset.src || next.getAttribute('src');
+    if(!src || next._preloaded) return;
+    next._preloaded = true;
+    /* Silently fetch next video into blob for instant switch */
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', src, true);
+    xhr.responseType = 'blob';
+    xhr.onload = () => {
+      if(xhr.status === 200) {
+        next.src = URL.createObjectURL(xhr.response);
+      }
+    };
+    xhr.send();
   }
 
   /* ── Loader (propeller + progress) ── */
   function showLoader() {
     loader.classList.add('active');
     hideBtn();
-    trackProgress();
   }
   function hideLoader() {
     loader.classList.remove('active');
     cancelProgress();
   }
+  let waitingForFull = false; /* true = waiting for 100% before playing */
+
+  function getBufferPct(v) {
+    if(!v.duration || !v.buffered.length) return 0;
+    let bufEnd = 0;
+    for(let i = 0; i < v.buffered.length; i++) bufEnd = Math.max(bufEnd, v.buffered.end(i));
+    return Math.min(100, Math.round((bufEnd / v.duration) * 100));
+  }
   function updateProgressBar() {
     const v = videos[cur];
-    if(!v.duration) return;
-    /* Find the MAXIMUM buffered end across all ranges */
-    let bufEnd = 0;
-    for(let i = 0; i < v.buffered.length; i++) {
-      bufEnd = Math.max(bufEnd, v.buffered.end(i));
-    }
-    const pct = Math.min(100, Math.round((bufEnd / v.duration) * 100));
+    const pct = getBufferPct(v);
     loadFill.style.width = pct + '%';
     loadText.textContent = pct > 0 ? ('Загрузка видео ' + pct + '%') : 'Загрузка видео...';
-    if(pct >= 100) loadText.textContent = 'Буферизация завершена';
+    /* When fully buffered → start playback */
+    if(pct >= 99 && waitingForFull) {
+      waitingForFull = false;
+      hideLoader();
+      v.play().catch(() => {});
+      hideBtn();
+    }
   }
   function trackProgress() {
     cancelProgress();
-    /* Use progress event for reliable buffered updates */
     const v = videos[cur];
     v._onProgress = () => updateProgressBar();
     v._onDuration = () => updateProgressBar();
     v.addEventListener('progress', v._onProgress);
     v.addEventListener('durationchange', v._onDuration);
-    /* Also poll as fallback for browsers that fire progress rarely */
     function poll() { updateProgressBar(); progressRAF = requestAnimationFrame(poll); }
     progressRAF = requestAnimationFrame(poll);
   }
   function cancelProgress() {
     if(progressRAF) { cancelAnimationFrame(progressRAF); progressRAF = null; }
-    /* Clean up event listeners */
     videos.forEach(v => {
       if(v._onProgress) { v.removeEventListener('progress', v._onProgress); v._onProgress = null; }
       if(v._onDuration) { v.removeEventListener('durationchange', v._onDuration); v._onDuration = null; }
     });
+  }
+  /* Pre-buffer a video: fetch via XHR for real progress, then play from blob */
+  function bufferAndPlay(v) {
+    waitingForFull = true;
+    const src = v.dataset.src || v.getAttribute('src');
+    showLoader();
+    loadFill.style.width = '0%';
+    loadText.textContent = 'Загрузка видео...';
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', src, true);
+    xhr.responseType = 'blob';
+    xhr.onprogress = (e) => {
+      if(e.lengthComputable) {
+        const pct = Math.min(100, Math.round((e.loaded / e.total) * 100));
+        loadFill.style.width = pct + '%';
+        loadText.textContent = 'Загрузка видео ' + pct + '%';
+      }
+    };
+    xhr.onload = () => {
+      if(xhr.status === 200) {
+        const blob = xhr.response;
+        const url = URL.createObjectURL(blob);
+        v.src = url;
+        v.muted = isMuted;
+        waitingForFull = false;
+        hideLoader();
+        v.play().catch(() => {});
+        hideBtn();
+        preloadNext();
+      }
+    };
+    xhr.onerror = () => {
+      /* Fallback: load normally */
+      ensureLoaded(v);
+      v.muted = isMuted;
+      v.play().catch(() => {});
+      waitingForFull = false;
+      hideLoader();
+    };
+    xhr.send();
   }
 
   /* ── Play button visibility ── */
@@ -1784,17 +1842,13 @@ window.addEventListener('scroll', () => {
 
   /* ── Buffering events per video ── */
   videos.forEach(v => {
-    /* waiting = stalled, needs buffer */
+    /* waiting = stalled mid-playback, show loader + track buffer progress */
     v.addEventListener('waiting', () => {
-      if(v.classList.contains('active') && started) showLoader();
-    });
-    /* playing = has enough data, playing now */
-    v.addEventListener('playing', () => {
-      if(v.classList.contains('active')) hideLoader();
-    });
-    /* canplaythrough = fully buffered enough for smooth play */
-    v.addEventListener('canplaythrough', () => {
-      if(v.classList.contains('active')) hideLoader();
+      if(v.classList.contains('active') && started && !waitingForFull) {
+        waitingForFull = true;
+        showLoader();
+        trackProgress(); /* poll buffered ranges until 100% → auto-play resumes */
+      }
     });
   });
 
@@ -1807,14 +1861,19 @@ window.addEventListener('scroll', () => {
     dots[cur].querySelector('.fill').style.animation = 'none';
 
     cur = n % videos.length;
-    ensureLoaded(videos[cur]);
-    videos[cur].classList.add('active');
+    const v = videos[cur];
+    v.classList.add('active');
     dots[cur].classList.add('active');
     dots[cur].querySelector('.fill').style.animation = '';
-    dots[cur].style.setProperty('--dur', videos[cur].duration + 's');
-    videos[cur].muted = isMuted;
-    videos[cur].play();
-    hideBtn();
+    dots[cur].style.setProperty('--dur', v.duration + 's');
+    v.muted = isMuted;
+    /* If already fully buffered, play immediately; otherwise buffer first */
+    if(getBufferPct(v) >= 99) {
+      v.play();
+      hideBtn();
+    } else {
+      bufferAndPlay(v);
+    }
     preloadNext();
   }
 
@@ -1831,13 +1890,18 @@ window.addEventListener('scroll', () => {
 
     if(!started) {
       started = true;
-      ensureLoaded(v);
-      v.muted = isMuted;
-      showLoader(); /* show propeller immediately */
-      loadFill.style.width = '0%';
-      loadText.textContent = 'Загрузка видео...';
-      v.play().catch(() => {}); /* play triggers loading */
+      /* If already fully buffered (preload=metadata loaded it), play now */
+      if(getBufferPct(v) >= 99) {
+        v.muted = isMuted;
+        v.play().catch(() => {});
+        hideBtn();
+      } else {
+        bufferAndPlay(v);
+      }
       preloadNext();
+    } else if(waitingForFull) {
+      /* Still loading, ignore clicks */
+      return;
     } else if(v.paused) {
       v.play();
       hideBtn();
