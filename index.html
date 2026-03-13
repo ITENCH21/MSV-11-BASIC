@@ -876,10 +876,10 @@ footer span{font-size:.78rem;color:#4a5a68}
 
 <div class="video-reel-wrap">
   <section class="video-reel" id="videoReel">
-    <video class="active" src="assets/videos/vid3.mp4" muted playsinline preload="auto"></video>
-    <video src="assets/videos/vid4.mp4" muted playsinline preload="auto"></video>
-    <video src="assets/videos/vid2.mp4" muted playsinline preload="auto"></video>
-    <video src="assets/videos/vid1.mp4" muted playsinline preload="auto"></video>
+    <video class="active" src="assets/videos/vid3.mp4" poster="assets/videos/vid3-poster.jpg" muted playsinline preload="auto"></video>
+    <video poster="assets/videos/vid4-poster.jpg" muted playsinline preload="none" data-src="assets/videos/vid4.mp4"></video>
+    <video poster="assets/videos/vid2-poster.jpg" muted playsinline preload="none" data-src="assets/videos/vid2.mp4"></video>
+    <video poster="assets/videos/vid1-poster.jpg" muted playsinline preload="none" data-src="assets/videos/vid1.mp4"></video>
     <div class="video-reel-dots" id="reelDots"></div>
     <button class="video-reel-mute" id="reelMute" title="Звук">🔇</button>
   </section>
@@ -1590,7 +1590,7 @@ window.addEventListener('scroll', () => {
 /* ── Carousel auto-play ── */
 /* Old carousel removed — all galleries use showcase now */
 
-/* ── Video reel playlist + Ambilight ── */
+/* ── Video reel playlist (lazy load) ── */
 (function(){
   const reel = document.getElementById('videoReel');
   if(!reel) return;
@@ -1598,6 +1598,20 @@ window.addEventListener('scroll', () => {
   const dotsWrap = document.getElementById('reelDots');
   const muteBtn = document.getElementById('reelMute');
   let cur = 0, isMuted = true, isVisible = false;
+
+  /* Lazy load: set src from data-src when needed */
+  function ensureLoaded(v) {
+    if(!v.src && v.dataset.src) {
+      v.src = v.dataset.src;
+      v.load();
+    }
+  }
+
+  /* Preload the next video in advance */
+  function preloadNext() {
+    const next = (cur + 1) % videos.length;
+    ensureLoaded(videos[next]);
+  }
 
   /* Create dots */
   videos.forEach((v, i) => {
@@ -1624,12 +1638,14 @@ window.addEventListener('scroll', () => {
     dots[cur].querySelector('.fill').style.animation = 'none';
 
     cur = n % videos.length;
+    ensureLoaded(videos[cur]);
     videos[cur].classList.add('active');
     dots[cur].classList.add('active');
     dots[cur].querySelector('.fill').style.animation = '';
     dots[cur].style.setProperty('--dur', videos[cur].duration + 's');
     videos[cur].muted = isMuted;
     videos[cur].play();
+    preloadNext();
   }
 
   videos.forEach((v, i) => {
@@ -1647,8 +1663,10 @@ window.addEventListener('scroll', () => {
     entries.forEach(e => {
       isVisible = e.isIntersecting;
       if(isVisible) {
+        ensureLoaded(videos[cur]);
         videos[cur].play();
         dots[cur].style.setProperty('--dur', videos[cur].duration + 's');
+        preloadNext();
       } else {
         videos[cur].pause();
       }
