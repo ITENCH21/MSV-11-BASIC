@@ -616,9 +616,9 @@ footer span{font-size:.78rem;color:#4a5a68}
 
 /* ── Module cards ── */
 .mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:24px}
-.mod-card{background:var(--card-grad),var(--card);border:1px solid var(--border);border-radius:10px;padding:0;transition:.25s;position:relative;overflow:hidden;box-shadow:var(--card-sh);display:flex;flex-direction:column}
+.mod-card{background:var(--card-grad),var(--card);border:1px solid var(--border);border-radius:10px;padding:0;transition:.25s;position:relative;overflow:hidden;box-shadow:var(--card-sh)}
 .mod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
-.mod-card-img{overflow:hidden;position:relative;background:var(--light)}
+.mod-card-img{overflow:hidden;position:relative;background:#eef3f7}
 .mod-card-img img{width:100%;height:auto;display:block;transition:transform .4s ease}
 /* ── Equipment catalog hero ── */
 .equip-catalog-wrap{max-width:920px;margin:32px auto 44px;position:relative}
@@ -658,7 +658,7 @@ footer span{font-size:.78rem;color:#4a5a68}
 @media(max-width:900px){.equip-row,.equip-row.three{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.equip-row,.equip-row.three{grid-template-columns:1fr}.equip-catalog-wrap{max-width:100%}}
 .mod-card:hover .mod-card-img img{transform:scale(1.03)}
-.mod-card-body{padding:20px 18px 18px;flex:1;display:flex;flex-direction:column}
+.mod-card-body{padding:20px 18px 18px}
 .mod-card.yellow::before{background:#E5AE00}
 .mod-card.blue::before{background:#1B6FA8}
 .mod-card.slate::before{background:#4a6070}
@@ -693,8 +693,8 @@ footer span{font-size:.78rem;color:#4a5a68}
 .mod-badge.orange{background:#FDEEE6;color:#c04400}
 .mod-badge.teal{background:#D4F0F0;color:#0d6060}
 .mod-card h3{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:8px}
-.mod-desc{font-size:.855rem;color:var(--grey);line-height:1.62;margin-bottom:14px;flex:1}
-.mod-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.mod-desc{font-size:.855rem;color:var(--grey);line-height:1.62;margin-bottom:14px}
+.mod-tags{display:flex;flex-wrap:wrap;gap:5px}
 .mod-tag{font-size:.71rem;font-weight:600;padding:3px 9px;border-radius:3px;background:var(--light);color:var(--grey);border:1px solid var(--border)}
 
 /* ── Interface section ── */
