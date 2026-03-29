@@ -620,19 +620,43 @@ footer span{font-size:.78rem;color:#4a5a68}
 .mod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
 .mod-card-img{overflow:hidden;position:relative;background:var(--light)}
 .mod-card-img img{width:100%;height:auto;display:block;transition:transform .4s ease}
-.equip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px}
-.equip-card{background:var(--card-grad),var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--card-sh);transition:.25s;display:flex;flex-direction:column}
-.equip-card:hover{box-shadow:var(--card-sh-hover);transform:translateY(-3px)}
-.equip-card-img{background:var(--light);overflow:hidden}
-.equip-card-img img{width:100%;height:auto;display:block;transition:transform .4s ease}
-.equip-card:hover .equip-card-img img{transform:scale(1.03)}
-.equip-card-body{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column}
-.equip-card-body h3{font-size:.88rem;margin:0 0 6px;color:var(--heading)}
-.equip-card-body p{font-size:.76rem;color:var(--grey);line-height:1.55;margin:0 0 10px;flex:1}
-.equip-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto}
-.equip-card-tags span{font-size:.64rem;font-weight:600;padding:2px 7px;border-radius:3px;background:var(--light);color:var(--grey);border:1px solid var(--border)}
-@media(max-width:900px){.equip-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:500px){.equip-grid{grid-template-columns:1fr}}
+/* ── Equipment catalog hero ── */
+.equip-catalog-wrap{max-width:720px;margin:32px auto 40px;position:relative}
+.equip-catalog-wrap::before{content:'';position:absolute;inset:-4px;border-radius:18px;background:linear-gradient(135deg,#E5AE00 0%,#E05206 35%,#148080 70%,#1B6FA8 100%);z-index:0;opacity:.7;filter:blur(6px);transition:opacity .4s}
+.equip-catalog-wrap:hover::before{opacity:1}
+.equip-catalog-inner{position:relative;z-index:1;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,.15)}
+.equip-catalog-inner img{width:100%;display:block}
+/* ── Equipment detail cards ── */
+.equip-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
+.equip-row.three{grid-template-columns:repeat(3,1fr)}
+.eq-card{background:var(--card-grad),var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--card-sh);transition:.3s;display:flex;flex-direction:column;position:relative}
+.eq-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:12px 12px 0 0}
+.eq-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.18);transform:translateY(-5px)}
+.eq-card.c-yellow::before{background:linear-gradient(90deg,#E5AE00,#f5c842)}
+.eq-card.c-orange::before{background:linear-gradient(90deg,#E05206,#ff7a3d)}
+.eq-card.c-teal::before{background:linear-gradient(90deg,#148080,#1db9b9)}
+.eq-card.c-blue::before{background:linear-gradient(90deg,#1B6FA8,#3fa0e0)}
+.eq-card.c-slate::before{background:linear-gradient(90deg,#4a6070,#7a9aad)}
+.eq-card-img{overflow:hidden;background:var(--light)}
+.eq-card-img img{width:100%;height:auto;display:block;transition:transform .5s ease}
+.eq-card:hover .eq-card-img img{transform:scale(1.04)}
+.eq-card-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.eq-card-body h3{font-size:.95rem;margin:0 0 8px;color:var(--heading);font-weight:700}
+.eq-card-body p{font-size:.82rem;color:var(--grey);line-height:1.65;margin:0 0 14px;flex:1}
+.eq-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.eq-tag{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.3px;transition:box-shadow .3s}
+.eq-tag.t-yellow{background:rgba(229,174,0,.12);color:#c49500;border:1px solid rgba(229,174,0,.25)}
+.eq-tag.t-orange{background:rgba(224,82,6,.10);color:#c04a05;border:1px solid rgba(224,82,6,.22)}
+.eq-tag.t-teal{background:rgba(20,128,128,.10);color:#0e7070;border:1px solid rgba(20,128,128,.22)}
+.eq-tag.t-blue{background:rgba(27,111,168,.10);color:#1663a0;border:1px solid rgba(27,111,168,.22)}
+.eq-tag.t-slate{background:rgba(74,96,112,.10);color:#4a6070;border:1px solid rgba(74,96,112,.22)}
+.eq-card:hover .eq-tag.t-yellow{box-shadow:0 0 8px rgba(229,174,0,.35)}
+.eq-card:hover .eq-tag.t-orange{box-shadow:0 0 8px rgba(224,82,6,.30)}
+.eq-card:hover .eq-tag.t-teal{box-shadow:0 0 8px rgba(20,128,128,.30)}
+.eq-card:hover .eq-tag.t-blue{box-shadow:0 0 8px rgba(27,111,168,.30)}
+.eq-card:hover .eq-tag.t-slate{box-shadow:0 0 8px rgba(74,96,112,.30)}
+@media(max-width:900px){.equip-row,.equip-row.three{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.equip-row,.equip-row.three{grid-template-columns:1fr}.equip-catalog-wrap{max-width:100%}}
 .mod-card:hover .mod-card-img img{transform:scale(1.03)}
 .mod-card-body{padding:20px 18px 18px;flex:1;display:flex;flex-direction:column}
 .mod-card.yellow::before{background:#E5AE00}
@@ -1343,70 +1367,84 @@ footer span{font-size:.78rem;color:#4a5a68}
   <div class="divider"></div>
   <p class="s-body">MSV-11 комплектуется палубным оборудованием для безопасного проведения исследовательских работ в открытом море. Конфигурация подбирается под задачи конкретной экспедиции.</p>
 
-  <!-- Каталог — широкий баннер -->
-  <div class="rv" style="margin:28px 0 32px;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.18);border:1px solid var(--border)">
-    <img src="assets/images/equip-catalog.png" alt="Каталог дополнительного оборудования MSV-11" style="width:100%;display:block">
+  <!-- Каталог — центральный элемент с градиентной подсветкой -->
+  <div class="equip-catalog-wrap rv">
+    <div class="equip-catalog-inner">
+      <img src="assets/images/equip-catalog.png" alt="Каталог дополнительного оборудования MSV-11">
+    </div>
   </div>
 
-  <div class="equip-grid">
-    <div class="equip-card rv">
-      <div class="equip-card-img"><img src="assets/images/equip-arch-small.png" alt="П-образная арка MSV-11"></div>
-      <div class="equip-card-body">
+  <!-- Верхний ряд: 3 карточки -->
+  <div class="equip-row three">
+    <div class="eq-card c-yellow rv">
+      <div class="eq-card-img"><img src="assets/images/equip-arch-small.png" alt="П-образная арка MSV-11"></div>
+      <div class="eq-card-body">
         <h3>П-образная арка</h3>
-        <p>Силовая конструкция на корме для крепления антенн, навигационных огней и прожекторов.</p>
-        <div class="equip-card-tags">
-          <span>Антенны</span>
-          <span>Огни</span>
-          <span>Прожекторы</span>
+        <p>Силовая П-образная арка, установленная на корме катамарана. Служит опорной конструкцией для крепления антенн, навигационных огней, прожекторов и дополнительного оборудования. Обеспечивает жёсткость конструкции и удобный доступ к навесному оборудованию.</p>
+        <div class="eq-tags">
+          <span class="eq-tag t-yellow">Силовая конструкция</span>
+          <span class="eq-tag t-yellow">Антенны</span>
+          <span class="eq-tag t-yellow">Навигационные огни</span>
+          <span class="eq-tag t-yellow">Прожекторы</span>
         </div>
       </div>
     </div>
 
-    <div class="equip-card rv">
-      <div class="equip-card-img"><img src="assets/images/equip-crane.png" alt="Кран-балка MSV-11"></div>
-      <div class="equip-card-body">
-        <h3>Кран-балка</h3>
-        <p>Гидравлическая кран-балка для спуска и подъёма батометров, дночерпателя, сеток и ТНПА.</p>
-        <div class="equip-card-tags">
-          <span>Гидравлика</span>
-          <span>Спуск/подъём</span>
+    <div class="eq-card c-orange rv">
+      <div class="eq-card-img"><img src="assets/images/equip-crane.png" alt="Кран-балка MSV-11"></div>
+      <div class="eq-card-body">
+        <h3>Кран-балка / манипулятор</h3>
+        <p>Гидравлическая кран-балка с поворотной стрелой для спуска и подъёма погружного оборудования: батометров, дночерпателя, сеток Джеди и ТНПА. Грузоподъёмность подбирается под комплект оборудования.</p>
+        <div class="eq-tags">
+          <span class="eq-tag t-orange">Гидравлика</span>
+          <span class="eq-tag t-orange">Поворотная стрела</span>
+          <span class="eq-tag t-orange">Спуск/подъём</span>
+          <span class="eq-tag t-orange">Грузоподъёмность</span>
         </div>
       </div>
     </div>
 
-    <div class="equip-card rv">
-      <div class="equip-card-img"><img src="assets/images/equip-winch.png" alt="Лебёдка MSV-11"></div>
-      <div class="equip-card-body">
+    <div class="eq-card c-teal rv">
+      <div class="eq-card-img"><img src="assets/images/equip-winch.png" alt="Лебёдка MSV-11"></div>
+      <div class="eq-card-body">
         <h3>Лебёдки и тросы</h3>
-        <p>Главная и вспомогательная лебёдки для спуска приборов, буксировки и швартовки.</p>
-        <div class="equip-card-tags">
-          <span>Лебёдка</span>
-          <span>Трос</span>
-          <span>Швартовка</span>
+        <p>Лебёдочное оборудование для спуска и подъёма научных приборов на заданные горизонты. Комплектация включает главную и вспомогательную лебёдки с различной грузоподъёмностью. Тросовая оснастка обеспечивает буксировку и швартовку.</p>
+        <div class="eq-tags">
+          <span class="eq-tag t-teal">Главная лебёдка</span>
+          <span class="eq-tag t-teal">Вспомогательная</span>
+          <span class="eq-tag t-teal">Стальной трос</span>
+          <span class="eq-tag t-teal">Швартовка</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="equip-card rv">
-      <div class="equip-card-img"><img src="assets/images/equip-rafts2.png" alt="Спасательные плоты MSV-11"></div>
-      <div class="equip-card-body">
+  <!-- Нижний ряд: 2 карточки по центру -->
+  <div class="equip-row" style="max-width:68%;margin-left:auto;margin-right:auto">
+    <div class="eq-card c-slate rv">
+      <div class="eq-card-img"><img src="assets/images/equip-rafts2.png" alt="Спасательные плоты MSV-11"></div>
+      <div class="eq-card-body">
         <h3>Спасательные плоты</h3>
-        <p>Надувные плоты в контейнерах с автораскрытием по требованиям РМРС.</p>
-        <div class="equip-card-tags">
-          <span>Автораскрытие</span>
-          <span>РМРС</span>
+        <p>Надувные спасательные плоты в контейнерах, размещённые на палубе согласно требованиям Регистра. Автоматическое раскрытие при аварийной ситуации. Комплектуются аварийным запасом, сигнальными средствами и средствами первой помощи.</p>
+        <div class="eq-tags">
+          <span class="eq-tag t-slate">Автораскрытие</span>
+          <span class="eq-tag t-slate">Аварийный запас</span>
+          <span class="eq-tag t-slate">Сигнальные средства</span>
+          <span class="eq-tag t-slate">Требования РМРС</span>
         </div>
       </div>
     </div>
 
-    <div class="equip-card rv">
-      <div class="equip-card-img"><img src="assets/images/equip-fuel.png" alt="Топливные баки MSV-11"></div>
-      <div class="equip-card-body">
+    <div class="eq-card c-blue rv">
+      <div class="eq-card-img"><img src="assets/images/equip-fuel.png" alt="Топливные баки MSV-11"></div>
+      <div class="eq-card-body">
         <h3>Топливные баки</h3>
-        <p>Палубные баки различного литража с системой контроля уровня и перелива.</p>
-        <div class="equip-card-tags">
-          <span>Дизель</span>
-          <span>Контроль</span>
+        <p>Палубные топливные баки различного литража для дизельного топлива. Объём подбирается в зависимости от дальности буксировки и продолжительности работ на точке. Баки оснащены системой контроля уровня и перелива.</p>
+        <div class="eq-tags">
+          <span class="eq-tag t-blue">Разный литраж</span>
+          <span class="eq-tag t-blue">Плоские баки</span>
+          <span class="eq-tag t-blue">Дизельное топливо</span>
+          <span class="eq-tag t-blue">Контроль уровня</span>
         </div>
       </div>
     </div>
