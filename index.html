@@ -206,9 +206,14 @@ section{padding:96px 8%}
 
 .problem-bg{background:var(--grad-prob)}
 .p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
-#concept .p2-grid{align-items:stretch;gap:clamp(24px,3vw,52px)}
-#concept .p2-grid>div:last-child{display:flex;flex-direction:column}
-#concept .sol-box{flex:1}
+#concept .concept-heads{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,3vw,52px);margin-bottom:18px}
+#concept .concept-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,3vw,52px);row-gap:0;align-items:stretch}
+#concept .concept-grid .pp-item{margin-bottom:18px}
+#concept .concept-grid .pp-item:last-of-type{margin-bottom:0}
+#concept .concept-grid .sol-li{background:var(--navy);padding:20px 28px;color:#ccd6e0;font-size:.87rem;line-height:1.6;display:flex;align-items:center;border-radius:0}
+#concept .concept-grid .sol-li:first-of-type{border-radius:14px 14px 0 0;padding-top:28px}
+#concept .concept-grid .sol-li:last-of-type{border-radius:0 0 14px 14px;padding-bottom:28px}
+#concept .concept-grid .sol-li+.sol-li{border-top:1px solid rgba(255,255,255,.07)}
 .pp-list{display:flex;flex-direction:column;gap:18px}
 .pp-item{
   display:flex;gap:16px;align-items:flex-start;
@@ -1036,49 +1041,43 @@ footer span{font-size:.78rem;color:#4a5a68}
   <div class="s-label">Задачи</div>
   <div class="divider"></div>
   <h2 class="s-title">Отбор проб с судна требует<br><span>присутствия людей на борту</span></h2>
-  <div class="p2-grid">
-    <div>
-      <h3 style="font-size:1.25rem;font-weight:800;color:var(--dark);margin-bottom:18px">Задачи</h3>
-      <div class="pp-list">
-        <div class="pp-item rv">
-          <div class="pp-icon">🔬</div>
-          <div class="pp-body">
-            <h4>Сложный пробоотбор</h4>
-            <p>Существующие методики и оборудование по пробоотбору воды, грунта, планктона и других объектов окружающей среды требуют присутствия обученного персонала. Используемое при отборе оборудование рассчитано на отбор только в одной точке.</p>
-          </div>
-        </div>
-        <div class="pp-item rv">
-          <div class="pp-icon">📍</div>
-          <div class="pp-body">
-            <h4>Точное позиционирование DP1</h4>
-            <p>Удержание в точке с погрешностью 1–1,5 метра при силе ветра 4–5 баллов по шкале Бофорта обеспечивается двумя подвесными двигателями по 300 л/с и двумя подруливающими устройствами.</p>
-          </div>
-        </div>
-        <div class="pp-item rv">
-          <div class="pp-icon">🚢</div>
-          <div class="pp-body">
-            <h4>Работа с материнским судном</h4>
-            <p>Катамаран буксируется в район работ материнским судном. Материнское судно с соответствующим району работ удалением от берега, судовой лабораторией и возможностью размещения экипажа катамарана.</p>
-          </div>
-        </div>
-        <div class="pp-item rv">
-          <div class="pp-icon">🛡️</div>
-          <div class="pp-body">
-            <h4>Безопасность экипажа</h4>
-            <p>Катамаран отвечает всем правилам РМРС.</p>
-          </div>
-        </div>
+  <div class="concept-heads">
+    <h3 style="font-size:1.25rem;font-weight:800;color:var(--dark)">Задачи</h3>
+    <h3 style="font-size:1.25rem;font-weight:800;color:var(--orange)">Решение — MSV-11</h3>
+  </div>
+  <div class="concept-grid">
+    <div class="pp-item rv">
+      <div class="pp-icon">🔬</div>
+      <div class="pp-body">
+        <h4>Сложный пробоотбор</h4>
+        <p>Существующие методики и оборудование по пробоотбору воды, грунта, планктона и других объектов окружающей среды требуют присутствия обученного персонала. Используемое при отборе оборудование рассчитано на отбор только в одной точке.</p>
       </div>
     </div>
-    <div>
-      <h3 style="font-size:1.25rem;font-weight:800;color:var(--orange);margin-bottom:18px">Решение — MSV-11</h3>
-      <div class="sol-box rv">
-        <div class="sol-li">Катамаран оборудован рубкой на три человека для размещения персонала для отбора проб по программе ПЭК, а также для ведения параллельного отбора с помощью автоматических пробоотборников для разработки и опробования методик и оборудования по автоматическому отбору.</div>
-        <div class="sol-li">Система DP не ниже DP1 позволит катамарану работать в зоне 500 м от добывающей платформы, обеспечивать работу ТНПА на глубинах до 350 м, а также ходить галсами с погружным буксируемым оборудованием при силе ветра до 5 баллов по шкале Бофорта.</div>
-        <div class="sol-li">Для доставки катамарана в район работ мы разработаем проект буксировки, отвечающий требованиям регистра для любого типа материнского судна. Отобранные пробы обрабатываются, консервируются либо замораживаются в судовой лаборатории материнского судна.</div>
-        <div class="sol-li">Катамаран с экипажем отвечают требованиям производственной безопасности «ГПН» при проведении инженерных работ на судах.</div>
+    <div class="sol-li">Катамаран оборудован рубкой на три человека для размещения персонала для отбора проб по программе ПЭК, а также для ведения параллельного отбора с помощью автоматических пробоотборников для разработки и опробования методик и оборудования по автоматическому отбору.</div>
+    <div class="pp-item rv">
+      <div class="pp-icon">📍</div>
+      <div class="pp-body">
+        <h4>Точное позиционирование DP1</h4>
+        <p>Удержание в точке с погрешностью 1–1,5 метра при силе ветра 4–5 баллов по шкале Бофорта обеспечивается двумя подвесными двигателями по 300 л/с и двумя подруливающими устройствами.</p>
       </div>
     </div>
+    <div class="sol-li">Система DP не ниже DP1 позволит катамарану работать в зоне 500 м от добывающей платформы, обеспечивать работу ТНПА на глубинах до 350 м, а также ходить галсами с погружным буксируемым оборудованием при силе ветра до 5 баллов по шкале Бофорта.</div>
+    <div class="pp-item rv">
+      <div class="pp-icon">🚢</div>
+      <div class="pp-body">
+        <h4>Работа с материнским судном</h4>
+        <p>Катамаран буксируется в район работ материнским судном. Материнское судно с соответствующим району работ удалением от берега, судовой лабораторией и возможностью размещения экипажа катамарана.</p>
+      </div>
+    </div>
+    <div class="sol-li">Для доставки катамарана в район работ мы разработаем проект буксировки, отвечающий требованиям регистра для любого типа материнского судна. Отобранные пробы обрабатываются, консервируются либо замораживаются в судовой лаборатории материнского судна.</div>
+    <div class="pp-item rv">
+      <div class="pp-icon">🛡️</div>
+      <div class="pp-body">
+        <h4>Безопасность экипажа</h4>
+        <p>Катамаран отвечает всем правилам РМРС.</p>
+      </div>
+    </div>
+    <div class="sol-li">Катамаран с экипажем отвечают требованиям производственной безопасности «ГПН» при проведении инженерных работ на судах.</div>
   </div>
 </section>
 
