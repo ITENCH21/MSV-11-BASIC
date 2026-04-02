@@ -206,9 +206,9 @@ section{padding:96px 8%}
 
 .problem-bg{background:var(--grad-prob)}
 .p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
-#concept .p2-grid{align-items:start;gap:clamp(24px,3vw,52px)}
-#concept .col-head{font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:18px}
-.pp-item.sol{border-left-color:var(--accent)}
+#concept .p2-grid{align-items:stretch;gap:clamp(24px,3vw,52px)}
+#concept .p2-grid>div:last-child{display:flex;flex-direction:column}
+#concept .sol-box{flex:1}
 .pp-list{display:flex;flex-direction:column;gap:18px}
 .pp-item{
   display:flex;gap:16px;align-items:flex-start;
@@ -1038,7 +1038,6 @@ footer span{font-size:.78rem;color:#4a5a68}
   <h2 class="s-title">Отбор проб с судна требует<br><span>присутствия людей на борту</span></h2>
   <div class="p2-grid">
     <div>
-      <h3 class="col-head">Задачи</h3>
       <div class="pp-list">
         <div class="pp-item rv">
           <div class="pp-icon">🔬</div>
@@ -1071,32 +1070,12 @@ footer span{font-size:.78rem;color:#4a5a68}
       </div>
     </div>
     <div>
-      <h3 class="col-head">Решение — MSV-11</h3>
-      <div class="pp-list">
-        <div class="pp-item sol rv">
-          <div class="pp-icon">✅</div>
-          <div class="pp-body">
-            <p>Катамаран оборудован рубкой на три человека для размещения персонала для отбора проб по программе ПЭК, а также для ведения параллельного отбора с помощью автоматических пробоотборников для разработки и опробования методик и оборудования по автоматическому отбору.</p>
-          </div>
-        </div>
-        <div class="pp-item sol rv">
-          <div class="pp-icon">✅</div>
-          <div class="pp-body">
-            <p>Система DP не ниже DP1 позволит катамарану работать в зоне 500 м от добывающей платформы, обеспечивать работу ТНПА на глубинах до 350 м, а также ходить галсами с погружным буксируемым оборудованием при силе ветра до 5 баллов по шкале Бофорта.</p>
-          </div>
-        </div>
-        <div class="pp-item sol rv">
-          <div class="pp-icon">✅</div>
-          <div class="pp-body">
-            <p>Для доставки катамарана в район работ мы разработаем проект буксировки, отвечающий требованиям регистра для любого типа материнского судна. Отобранные пробы обрабатываются, консервируются либо замораживаются в судовой лаборатории материнского судна.</p>
-          </div>
-        </div>
-        <div class="pp-item sol rv">
-          <div class="pp-icon">✅</div>
-          <div class="pp-body">
-            <p>Катамаран с экипажем отвечают требованиям производственной безопасности «ГПН» при проведении инженерных работ на судах.</p>
-          </div>
-        </div>
+      <div class="sol-box rv">
+        <h3 style="color:var(--orange)">Решение — MSV-11</h3>
+        <div class="sol-li"><strong>Ответ на пробоотбор:</strong> Катамаран оборудован рубкой на три человека для размещения персонала для отбора проб по программе ПЭК, а также для ведения параллельного отбора с помощью автоматических пробоотборников для разработки и опробования методик и оборудования по автоматическому отбору.</div>
+        <div class="sol-li"><strong>Ответ на позиционирование:</strong> Система DP не ниже DP1 позволит катамарану работать в зоне 500 м от добывающей платформы, обеспечивать работу ТНПА на глубинах до 350 м, а также ходить галсами с погружным буксируемым оборудованием при силе ветра до 5 баллов по шкале Бофорта.</div>
+        <div class="sol-li"><strong>Ответ на материнское судно:</strong> Для доставки катамарана в район работ мы разработаем проект буксировки, отвечающий требованиям регистра для любого типа материнского судна. Отобранные пробы обрабатываются, консервируются либо замораживаются в судовой лаборатории материнского судна.</div>
+        <div class="sol-li"><strong>Ответ на безопасность:</strong> Катамаран с экипажем отвечают требованиям производственной безопасности «ГПН» при проведении инженерных работ на судах.</div>
       </div>
     </div>
   </div>
