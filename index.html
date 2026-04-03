@@ -389,7 +389,7 @@ section{padding:96px 8%}
 .adv-card.hl{background:var(--navy);border-color:var(--orange);border-top-color:var(--orange)}
 .adv-card.hl h3{color:#fff}
 .adv-card.hl p{color:#a8c4d8}
-.adv-ico{font-size:2rem;margin-bottom:12px}
+.adv-ico{width:52px;height:52px;background:#eaeff4;box-shadow:6px 6px 14px rgba(166,177,190,.55),-6px -6px 14px rgba(255,255,255,.98);display:flex;align-items:center;justify-content:center;color:#8a9bac;border-radius:14px;margin-bottom:16px}[data-theme="dark"] .adv-ico,adv-card.hl .adv-ico{background:#1a2636;background:#1a2636;box-shadow:6px 6px 14px rgba(0,0,0,.55),-6px -6px 14px rgba(255,255,255,.05);color:#6a8099}
 .adv-card h3{font-size:.98rem;font-weight:700;color:var(--dark);margin-bottom:7px}
 .adv-card p{font-size:.865rem;color:var(--grey);line-height:1.6}
 
@@ -418,7 +418,7 @@ section{padding:96px 8%}
   width:28px;height:28px;border:2px solid var(--orange);border-radius:50%;
   display:flex;align-items:center;justify-content:center;z-index:1;
 }
-.ap-ico{font-size:2.6rem;margin-bottom:10px}
+.ap-ico{width:52px;height:52px;background:#eaeff4;box-shadow:6px 6px 14px rgba(166,177,190,.55),-6px -6px 14px rgba(255,255,255,.98);display:flex;align-items:center;justify-content:center;color:#8a9bac;border-radius:14px;margin:0 auto 12px}[data-theme="dark"] .ap-ico{background:#1a2636;background:#1a2636;box-shadow:6px 6px 14px rgba(0,0,0,.55),-6px -6px 14px rgba(255,255,255,.05);color:#6a8099}
 .ap-num{display:inline-block;background:var(--orange);color:#fff;border-radius:50%;width:24px;height:24px;font-size:.72rem;font-weight:800;line-height:24px;margin-bottom:8px}
 .ap h4{font-weight:700;color:var(--dark);font-size:.93rem;margin-bottom:5px}
 .ap p{font-size:.81rem;color:var(--grey);line-height:1.5}
@@ -436,7 +436,7 @@ section{padding:96px 8%}
   border-radius:8px;padding:14px 18px;color:#ccd6e0;
   font-size:.76rem;font-weight:600;text-align:center;min-width:76px;
 }
-.ti span:first-child{font-size:1.7rem;margin-bottom:2px}
+.ti span:first-child{display:flex;align-items:center;justify-content:center;margin-bottom:4px;color:#ccd6e0}
 .cont-img img{
   width:100%;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.3);
   object-fit:cover;height:260px;
@@ -458,7 +458,7 @@ section{padding:96px 8%}
 .app-card:hover{background:var(--navy);border-color:var(--navy)}
 .app-card:hover h3,.app-card:hover .a-ico{color:#fff}
 .app-card:hover p{color:#a8c4d8}
-.a-ico{font-size:2.2rem;margin-bottom:12px;display:block;transition:.2s}
+.a-ico{width:52px;height:52px;background:#eaeff4;box-shadow:6px 6px 14px rgba(166,177,190,.55),-6px -6px 14px rgba(255,255,255,.98);display:flex;align-items:center;justify-content:center;color:#8a9bac;border-radius:14px;margin-bottom:12px;transition:.3s}.app-card:hover .a-ico{background:#243445;box-shadow:6px 6px 14px rgba(0,0,0,.45),-6px -6px 14px rgba(255,255,255,.04);color:#fff}[data-theme="dark"] .a-ico{background:#1a2636;background:#1a2636;box-shadow:6px 6px 14px rgba(0,0,0,.55),-6px -6px 14px rgba(255,255,255,.05);color:#6a8099}
 .app-card h3{font-weight:700;color:var(--dark);font-size:.93rem;margin-bottom:7px;transition:.2s}
 .app-card p{font-size:.84rem;color:var(--grey);line-height:1.55;transition:.2s}
 
@@ -584,8 +584,8 @@ section{padding:96px 8%}
 }
 .c-row:hover{background:rgba(255,255,255,.1)}
 .c-ico{
-  font-size:1rem;flex-shrink:0;width:34px;height:34px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;background:rgba(224,82,6,.14);color:#fff;
+  flex-shrink:0;width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:rgba(224,82,6,.14);color:var(--orange);
 }
 .c-info small{font-size:.66rem;color:#88BBDD;display:block;letter-spacing:.6px;text-transform:uppercase;margin-bottom:2px}
 .c-info a,.c-info span{font-size:.88rem;font-weight:600;color:#fff;text-decoration:none;transition:.2s;line-height:1.35}
@@ -688,7 +688,7 @@ footer span{font-size:.78rem;color:#4a5a68}
 .hiw-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;position:relative;margin-bottom:40px}
 .hiw-steps::before{content:'';position:absolute;top:32px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--accent));z-index:0}
 .hiw-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;z-index:1}
-.hiw-dot{width:64px;height:64px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px;flex-shrink:0;box-shadow:0 0 0 4px rgba(224,82,6,.22);border:3px solid rgba(255,255,255,.15)}
+.hiw-dot{width:64px;height:64px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0;box-shadow:0 0 0 4px rgba(224,82,6,.22);border:3px solid rgba(255,255,255,.15);color:#fff}
 .hiw-step h4{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.3}
 .hiw-step p{font-size:.76rem;color:#88BBDD;line-height:1.5}
 .hiw-note{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--orange);border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -726,7 +726,7 @@ footer span{font-size:.78rem;color:#4a5a68}
 .iface-viz h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:18px}
 .connector-list{display:flex;flex-direction:column;gap:9px}
 .conn-item{display:flex;align-items:flex-start;gap:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:10px 13px}
-.conn-ico{font-size:1.15rem;flex-shrink:0;line-height:1.4}
+.conn-ico{flex-shrink:0;display:flex;align-items:center;color:var(--orange)}
 .conn-text{font-size:.81rem;color:#ccd6e0;line-height:1.45}
 .conn-text strong{color:var(--orange);font-weight:700}
 
@@ -955,7 +955,7 @@ footer span{font-size:.78rem;color:#4a5a68}
       <span class="nl-sub">Labcluster · labcluster.ru</span>
     </div>
   </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">☰</button>
+  <button class="nav-toggle" id="navToggle" aria-label="Открыть меню"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
   <div class="nav-links" id="navLinks">
     <a href="#concept">Задачи</a>
     <a href="#vessel">Судно</a>
@@ -967,8 +967,8 @@ footer span{font-size:.78rem;color:#4a5a68}
     <a href="#contact">Контакты</a>
   </div>
   <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Переключить тему">
-    <span class="theme-ico light-ico">☀️</span>
-    <span class="theme-ico dark-ico">🌙</span>
+    <span class="theme-ico light-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+    <span class="theme-ico dark-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
   </button>
 </nav>
 
@@ -990,7 +990,7 @@ footer span{font-size:.78rem;color:#4a5a68}
       <a class="btn-s" href="#vessel">Смотреть судно ↓</a>
       <a class="btn-pres" href="MSV-11-Presentation.pdf" target="_blank" rel="noopener">▣ Презентация</a>
       <a class="btn-pdf" href="MSV-11-Presentation.pdf" download>⬇ Скачать PDF</a>
-      <a class="btn-docx" href="MSV-11-Технический-паспорт.docx" download>📄 Технический паспорт .docx</a>
+      <a class="btn-docx" href="MSV-11-Технический-паспорт.docx" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Технический паспорт .docx</a>
     </div>
   </div>
 </section>
@@ -1035,7 +1035,7 @@ footer span{font-size:.78rem;color:#4a5a68}
       <div class="video-load-text" id="videoLoadText">Загрузка видео...</div>
     </div>
     <div class="video-reel-dots" id="reelDots"></div>
-    <button class="video-reel-mute" id="reelMute" title="Звук">🔇</button>
+    <button class="video-reel-mute" id="reelMute" title="Звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button>
   </section>
 </div>
 
@@ -1133,22 +1133,22 @@ footer span{font-size:.78rem;color:#4a5a68}
   <div class="divider"></div>
   <div class="adv-grid">
     <div class="adv-card rv">
-      <div class="adv-ico">💰</div>
+      <div class="adv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <h3>Экономия</h3>
       <p>Катамаран в связке с материнским судном позволяет обеспечивать весь комплекс работ, ранее требовавший привлечения дорогостоящего судна с системой динамического позиционирования, что избыточно для данного типа работ. По факту система ДП привлечённого судна начинает использоваться только в районе работ, но судосутки считаются с момента мобилизации судна из порта пребывания.</p>
     </div>
     <div class="adv-card rv hl">
-      <div class="adv-ico">🔬</div>
+      <div class="adv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></div>
       <h3>Уникальная научная платформа</h3>
       <p>Многофункциональность катамарана позволяет увеличивать количество исследований под конкретную задачу. Пример: при геохимических поисковых работах на нефть и газ, катамаран сможет обеспечить точное попадание грунтовой трубки в локальную зону разгрузки углеводородного флюида, выделенную по результатам сейсмо-акустического профилирования и многолучевого эхолотирования.</p>
     </div>
     <div class="adv-card rv">
-      <div class="adv-ico">🚀</div>
+      <div class="adv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
       <h3>Аналогов нет</h3>
       <p>Полученный опыт строительства и эксплуатации маломерного судна с DP1, а также разработка автоматических систем пробоотбора и методик к ним позволит совершить прорыв в области экологических, океанологических, геохимических и других изысканий на акваториях морей. В дальнейшем возможен выпуск линейки катамаранов разного размера для работы в акваториях портов, осмотра танкеров с помощью ТНПА, гидрографии на мелководье и в устьях рек, разминирования акваторий и др.</p>
     </div>
     <div class="adv-card rv">
-      <div class="adv-ico">🌍</div>
+      <div class="adv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
       <h3>Глобальная мобильность</h3>
       <p>Возможность отправки в любую точку мира позволит находить работу вне сезона Арктической навигации. Это позволит вернуть инвестиции, а также уменьшить стоимость работ для ПАО «Газпром нефть».</p>
     </div>
@@ -1305,32 +1305,32 @@ footer span{font-size:.78rem;color:#4a5a68}
 
   <div class="hiw-steps rv">
     <div class="hiw-step">
-      <div class="hiw-dot">🚢</div>
+      <div class="hiw-dot"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0"/><path d="M4 18c0-1 1.5-2 2-3h8c.5 1 2 2 2 3"/><path d="M8 15V9h8v6"/><path d="M12 9V4"/><path d="M10 4h4"/></svg></div>
       <h4>Буксировка</h4>
       <p>Материнское судно доставляет катамаран MSV-11 в район проведения работ.</p>
     </div>
     <div class="hiw-step">
-      <div class="hiw-dot">📍</div>
+      <div class="hiw-dot"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
       <h4>Позиционирование DP1</h4>
       <p>Система DP1 с подрульками удерживает катамаран в заданной точке с высокой точностью.</p>
     </div>
     <div class="hiw-step">
-      <div class="hiw-dot">🔬</div>
+      <div class="hiw-dot"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></div>
       <h4>Спуск оборудования</h4>
       <p>С палубы опускаются батометры, дночерпатель, сетки Джеди или ТНПА.</p>
     </div>
     <div class="hiw-step">
-      <div class="hiw-dot">🎮</div>
+      <div class="hiw-dot"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M14 10h.01M16 10h.01M14 12h.01M16 12h.01"/></svg></div>
       <h4>Управление ТНПА</h4>
       <p>Оператор управляет подводным аппаратом из рубки катамарана совместно с капитаном.</p>
     </div>
     <div class="hiw-step">
-      <div class="hiw-dot">🧪</div>
+      <div class="hiw-dot"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6l3 8H7l3-8V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><circle cx="10" cy="16" r=".5" fill="currentColor"/><circle cx="13.5" cy="14" r=".5" fill="currentColor"/></svg></div>
       <h4>Отбор проб</h4>
       <p>Пробоотборщик на палубе осуществляет отбор и консервацию проб воды, грунта и планктона.</p>
     </div>
     <div class="hiw-step">
-      <div class="hiw-dot">📦</div>
+      <div class="hiw-dot"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
       <h4>Передача на судно</h4>
       <p>Отобранные пробы передаются на материнское судно для дальнейшей обработки в лаборатории.</p>
     </div>
@@ -1372,11 +1372,11 @@ footer span{font-size:.78rem;color:#4a5a68}
     <div class="iface-viz">
       <h4>Безопасность работы на палубе</h4>
       <div class="connector-list">
-        <div class="conn-item"><span class="conn-ico">🛡️</span><div class="conn-text"><strong>Релинги</strong> — ограждение рабочей палубы по периметру</div></div>
-        <div class="conn-item"><span class="conn-ico">🔗</span><div class="conn-text"><strong>Страховочные тросы</strong> — крепление страховочных систем экипажа</div></div>
-        <div class="conn-item"><span class="conn-ico">🔴</span><div class="conn-text"><strong>Спасательные круги</strong> — средства спасения на палубе</div></div>
-        <div class="conn-item"><span class="conn-ico">📍</span><div class="conn-text"><strong>DP1</strong> — точное удержание позиции при спуске оборудования</div></div>
-        <div class="conn-item"><span class="conn-ico">🚢</span><div class="conn-text"><strong>Материнское судно</strong> — буксировка и поддержка в районе работ</div></div>
+        <div class="conn-item"><span class="conn-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div class="conn-text"><strong>Релинги</strong> — ограждение рабочей палубы по периметру</div></div>
+        <div class="conn-item"><span class="conn-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><div class="conn-text"><strong>Страховочные тросы</strong> — крепление страховочных систем экипажа</div></div>
+        <div class="conn-item"><span class="conn-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg></span><div class="conn-text"><strong>Спасательные круги</strong> — средства спасения на палубе</div></div>
+        <div class="conn-item"><span class="conn-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div class="conn-text"><strong>DP1</strong> — точное удержание позиции при спуске оборудования</div></div>
+        <div class="conn-item"><span class="conn-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0"/><path d="M4 18c0-1 1.5-2 2-3h8c.5 1 2 2 2 3"/><path d="M8 15V9h8v6"/><path d="M12 9V4"/><path d="M10 4h4"/></svg></span><div class="conn-text"><strong>Материнское судно</strong> — буксировка и поддержка в районе работ</div></div>
       </div>
     </div>
   </div>
@@ -1509,19 +1509,19 @@ footer span{font-size:.78rem;color:#4a5a68}
   <div class="assembly">
     <div class="ap rv">
       <span class="ap-num">1</span>
-      <div class="ap-ico">📦</div>
+      <div class="ap-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
       <h4>3 контейнера 40'</h4>
       <p>Катамаран разбирается и помещается в три стандартных 40-футовых контейнера.</p>
     </div>
     <div class="ap rv">
       <span class="ap-num">2</span>
-      <div class="ap-ico">🏗️</div>
+      <div class="ap-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M4 15h16"/><path d="M8 10V5"/><path d="M16 10V5"/><path d="M8 5h8"/><path d="M12 5V2"/></svg></div>
       <h4>Кран + 3 человека</h4>
       <p>Для сборки/разборки достаточно крана и трёх человек.</p>
     </div>
     <div class="ap rv">
       <span class="ap-num">3</span>
-      <div class="ap-ico">🚢</div>
+      <div class="ap-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0"/><path d="M4 18c0-1 1.5-2 2-3h8c.5 1 2 2 2 3"/><path d="M8 15V9h8v6"/><path d="M12 9V4"/><path d="M10 4h4"/></svg></div>
       <h4>Буксировка</h4>
       <p>Далее буксируется в район работ материнским судном.</p>
     </div>
@@ -1531,9 +1531,9 @@ footer span{font-size:.78rem;color:#4a5a68}
       <h3>Глобальная доставка</h3>
       <p>MSV-11 доставляется в любую точку мира в трёх контейнерах 40 футов. Для сборки/разборки потребуется кран и 3 человека. Далее при необходимости буксируется в район работ материнским судном.</p>
       <div class="t-icons">
-        <div class="ti"><span>📦</span><span>3 × 40'</span></div>
-        <div class="ti"><span>🏗️</span><span>Кран</span></div>
-        <div class="ti"><span>👷</span><span>3 чел.</span></div>
+        <div class="ti"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span><span>3 × 40'</span></div>
+        <div class="ti"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M4 15h16"/><path d="M8 10V5"/><path d="M16 10V5"/><path d="M8 5h8"/><path d="M12 5V2"/></svg></span><span>Кран</span></div>
+        <div class="ti"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span>3 чел.</span></div>
       </div>
     </div>
     <div class="cont-img">
@@ -1582,11 +1582,11 @@ footer span{font-size:.78rem;color:#4a5a68}
   <h2 class="s-title">Где работает <span>MSV-11</span></h2>
   <div class="divider"></div>
   <div class="app-grid">
-    <div class="app-card rv"><span class="a-ico">🧪</span><h3>Экологический мониторинг</h3><p>Отбор проб воды, донных отложений, зоопланктона.</p></div>
-    <div class="app-card rv"><span class="a-ico">🤿</span><h3>Работа с ТНПА</h3><p>Визуальный осмотр законсервированных устьев скважин, газонефтепроводов.</p></div>
-    <div class="app-card rv"><span class="a-ico">🔬</span><h3>Геохимические исследования</h3><p>Отбор проб грунта для определения углеводородного флюида с координатной привязкой.</p></div>
-    <div class="app-card rv"><span class="a-ico">🌊</span><h3>Гидрография</h3><p>Буксировка погружного оборудования: ГБО, профилографы, магнитометры.</p></div>
-    <div class="app-card rv"><span class="a-ico">🚢</span><h3>Работа в портах</h3><p>Осмотр систем ВРК нефте/газотанкеров.</p></div>
+    <div class="app-card rv"><span class="a-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6l3 8H7l3-8V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><circle cx="10" cy="16" r=".5" fill="currentColor"/><circle cx="13.5" cy="14" r=".5" fill="currentColor"/></svg></span><h3>Экологический мониторинг</h3><p>Отбор проб воды, донных отложений, зоопланктона.</p></div>
+    <div class="app-card rv"><span class="a-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="20"/><path d="M5 15H4a8 8 0 0 0 16 0h-1"/><line x1="8" y1="11" x2="16" y2="11"/></svg></span><h3>Работа с ТНПА</h3><p>Визуальный осмотр законсервированных устьев скважин, газонефтепроводов.</p></div>
+    <div class="app-card rv"><span class="a-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></span><h3>Геохимические исследования</h3><p>Отбор проб грунта для определения углеводородного флюида с координатной привязкой.</p></div>
+    <div class="app-card rv"><span class="a-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span><h3>Гидрография</h3><p>Буксировка погружного оборудования: ГБО, профилографы, магнитометры.</p></div>
+    <div class="app-card rv"><span class="a-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 4 0"/><path d="M4 18c0-1 1.5-2 2-3h8c.5 1 2 2 2 3"/><path d="M8 15V9h8v6"/><path d="M12 9V4"/><path d="M10 4h4"/></svg></span><h3>Работа в портах</h3><p>Осмотр систем ВРК нефте/газотанкеров.</p></div>
   </div>
 </section>
 
@@ -1664,12 +1664,12 @@ footer span{font-size:.78rem;color:#4a5a68}
   <h2 class="s-title">Контакты<br>команды</h2>
   <p class="s-body">Контактные данные разработчика и команды проекта.</p>
   <div class="c-list">
-    <div class="c-row"><div class="c-ico">👤</div><div class="c-info"><small>Контактное лицо</small><span>Нейра Филипп Георгиевич, Учредитель</span></div></div>
-    <div class="c-row"><div class="c-ico">🏢</div><div class="c-info"><small>Компания</small><a href="https://labcluster.ru" target="_blank" rel="noreferrer">ГК «Лабораторный кластер» · labcluster.ru</a></div></div>
-    <div class="c-row"><div class="c-ico">📍</div><div class="c-info"><small>Адрес</small><span>195112, г. Санкт-Петербург, Заневский пр., д. 54, к.5</span></div></div>
-    <div class="c-row"><div class="c-ico">📧</div><div class="c-info"><small>Email</small><a href="mailto:neira@labcluster.ru">neira@labcluster.ru</a></div></div>
-    <div class="c-row"><div class="c-ico">📱</div><div class="c-info"><small>Мобильный</small><a href="tel:+79112999586">+7 911 299-95-86</a></div></div>
-    <div class="c-row"><div class="c-ico">☎️</div><div class="c-info"><small>Офис</small><a href="tel:+78123630808">+7 (812) 363-08-08</a></div></div>
+    <div class="c-row"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="c-info"><small>Контактное лицо</small><span>Нейра Филипп Георгиевич, Учредитель</span></div></div>
+    <div class="c-row"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div><div class="c-info"><small>Компания</small><a href="https://labcluster.ru" target="_blank" rel="noreferrer">ГК «Лабораторный кластер» · labcluster.ru</a></div></div>
+    <div class="c-row"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="c-info"><small>Адрес</small><span>195112, г. Санкт-Петербург, Заневский пр., д. 54, к.5</span></div></div>
+    <div class="c-row"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div class="c-info"><small>Email</small><a href="mailto:neira@labcluster.ru">neira@labcluster.ru</a></div></div>
+    <div class="c-row"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div><div class="c-info"><small>Мобильный</small><a href="tel:+79112999586">+7 911 299-95-86</a></div></div>
+    <div class="c-row"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3 a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91 a16 16 0 0 0 6.18 6.18l1.27-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="c-info"><small>Офис</small><a href="tel:+78123630808">+7 (812) 363-08-08</a></div></div>
   </div>
 </div>
 
@@ -2012,7 +2012,7 @@ window.addEventListener('scroll', () => {
     e.stopPropagation();
     isMuted = !isMuted;
     videos[cur].muted = isMuted;
-    muteBtn.textContent = isMuted ? '🔇' : '🔊';
+    muteBtn.innerHTML = isMuted ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>' : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
   });
 
   /* ── Visibility observer ── */
