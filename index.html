@@ -842,11 +842,13 @@ footer span{font-size:.78rem;color:#4a5a68}
   .gallery-grid{grid-template-columns:1fr}
   .gallery-grid img{height:240px}
   .gallery-grid figure:only-child{max-width:100%}
-  nav{position:static;padding:0 5%;height:60px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:60px}
   .nav-toggle{display:block}
   .nav-links{
-    display:none;position:absolute;top:60px;left:0;right:0;background:rgba(27,42,56,.98);
-    padding:18px 5%;flex-direction:column;gap:14px;border-bottom:1px solid rgba(255,255,255,.08);
+    display:none;position:absolute;top:60px;left:0;right:0;
+    background:rgba(27,42,56,.98);backdrop-filter:blur(12px);
+    padding:18px 5%;flex-direction:column;gap:14px;
+    border-bottom:1px solid rgba(255,255,255,.08);z-index:999;
   }
   .nav-links.open{display:flex}
   .numbers{grid-template-columns:repeat(3,1fr)}
