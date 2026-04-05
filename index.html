@@ -1007,6 +1007,192 @@ footer span{font-size:.78rem;color:#4a5a68}
 .video-reel-dot.active .fill{animation:dotFill var(--dur) linear forwards}
 @keyframes dotFill{from{width:0}to{width:100%}}
 .video-reel-mute{display:none}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE & TABLET OPTIMISATION  (Android / iOS / iPadOS)
+   ─────────────────────────────────────────────────────────── */
+
+/* ── Touch interaction: remove tap flash, eliminate 300 ms delay ── */
+a,button,.btn-p,.btn-s,.btn-pdf,.btn-docx,.btn-pres,
+.tab,.nav-toggle,.theme-toggle,.showcase-arrow,.showcase-pause,
+.video-play-btn,.video-reel-dot,.video-reel-mute,
+.nav-links a{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+/* ── Minimum 44×44 px touch targets (Apple HIG / Android guideline) ── */
+.nav-toggle,.theme-toggle{min-width:44px;min-height:44px}
+.showcase-arrow{min-width:44px;min-height:44px}
+.tab{min-height:44px;display:inline-flex;align-items:center}
+
+/* ── Prevent iOS font-size inflation on landscape rotation ── */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+/* ── Momentum scrolling on iOS ── */
+.tab-bar,.vessel-specs-panel,.showcase-thumbs,.gneft-table-wrap{
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ── gneft-table: already has overflow-x:auto wrapper — add iOS scroll & touch ── */
+.gneft-table-wrap{touch-action:pan-x pan-y}
+
+/* ── iOS notch / home-bar safe areas (iPhone X+, all modern iPhones) ── */
+nav{
+  padding-left:max(5%, env(safe-area-inset-left));
+  padding-right:max(5%, env(safe-area-inset-right));
+}
+@supports(padding-bottom: env(safe-area-inset-bottom)){
+  footer{padding-bottom:calc(22px + env(safe-area-inset-bottom))}
+  .hero{min-height:calc(100dvh - 60px)}
+}
+
+/* ── Fix vessel-specs-panel: removes absolute positioning after grid collapses ── */
+@media(max-width:860px){
+  .vessel-specs-wrap{min-height:0}
+  .vessel-specs-panel{position:relative;inset:auto;overflow-y:visible;max-height:none;margin-top:24px}
+}
+
+/* ── Video reel mobile: show dots and mute button, scale down play icon ── */
+@media(max-width:680px){
+  .video-reel-dots{display:flex;gap:6px;position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:4}
+  .video-reel-mute{
+    display:flex;align-items:center;justify-content:center;
+    position:absolute;top:10px;right:10px;z-index:4;
+    background:rgba(0,0,0,.48);border:none;border-radius:8px;
+    padding:6px;cursor:pointer;color:#fff;
+    min-width:36px;min-height:36px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .video-play-btn svg{width:60px;height:60px}
+  .video-reel-wrap{padding:0 4%}
+}
+
+/* ── Showcase thumbs: horizontal scroll on very small screens ── */
+@media(max-width:480px){
+  .showcase-thumbs{
+    display:flex;overflow-x:auto;flex-wrap:nowrap;gap:6px;
+    scrollbar-width:none;padding-bottom:4px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .showcase-thumbs::-webkit-scrollbar{display:none}
+  .showcase-thumb{flex:0 0 auto;width:72px;height:46px}
+}
+
+/* ═══════════════════════════════════════════════
+   SMALL PHONES  ≤ 480 px  (iPhone SE, compact Android)
+   ═══════════════════════════════════════════════ */
+@media(max-width:480px){
+  /* Nav height adjustment */
+  nav{height:54px}
+  .hero{min-height:calc(100dvh - 54px)}
+  .nav-links{top:54px}
+
+  /* Section padding */
+  section{padding:44px 4%}
+  .contact-bg{padding:44px 4%}
+  .hero-content{padding:64px 4% 40px}
+  footer{padding:18px 4%}
+
+  /* Typography scale */
+  .s-title{font-size:1.6rem;line-height:1.18}
+  .s-body{font-size:.88rem;margin-bottom:22px}
+  .hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}
+  .hero h1 em{font-size:clamp(2.1rem,10vw,2.8rem)}
+
+  /* Hero stats: 2 columns */
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .h-stat{min-width:0;width:auto}
+
+  /* Buttons: full-width stack */
+  .hero-btns{flex-direction:column;gap:10px}
+  .btn-p,.btn-s,.btn-pdf,.btn-docx,.btn-pres{
+    width:100%;text-align:center;justify-content:center;padding:14px 16px
+  }
+
+  /* Numbers 2-column (already done at 560px, reinforce) */
+  .numbers{grid-template-columns:repeat(2,1fr);gap:10px}
+  .num{padding:20px 8px}
+  .nv{font-size:1.4rem}
+
+  /* Concept: force single column */
+  #concept .concept-heads{grid-template-columns:1fr}
+  #concept .concept-grid{grid-template-columns:1fr}
+  #concept .concept-grid .sol-li:nth-child(2){border-radius:14px 14px 0 0}
+  #concept .concept-grid .sol-li:last-of-type{border-radius:0 0 14px 14px}
+
+  /* Cards — compact */
+  .pp-item,.adv-card,.app-card,.ap{padding:14px 12px;gap:12px}
+  .neu-icon{width:44px;height:44px;border-radius:12px}
+
+  /* Vessel spec panel compact */
+  .vessel-specs-panel{padding:18px 14px}
+  .vsp-table .sr{grid-template-columns:1fr}
+  .vsp-table .sk{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .vsp-table .sv{padding-top:2px}
+
+  /* Timeline */
+  .timeline::before{left:16px}
+  .tl-dot{width:32px;height:32px;font-size:.76rem}
+  .tl-item{gap:10px}
+  .tl-body{padding:14px 14px 16px}
+}
+
+/* ═══════════════════════════════════════════════
+   VERY SMALL PHONES  ≤ 390 px  (iPhone SE 1st gen, Galaxy A-series)
+   ═══════════════════════════════════════════════ */
+@media(max-width:390px){
+  .s-title{font-size:1.42rem}
+  .hero h1 em{font-size:clamp(1.9rem,11vw,2.4rem)}
+  section{padding:36px 4%}
+  .hero-stats{gap:8px}
+  .h-stat .v{font-size:1.22rem}
+  .h-stat .l{font-size:.59rem}
+  .nv{font-size:1.22rem}
+  .nu{font-size:.75rem}
+  .nl{font-size:.57rem}
+  .btn-p,.btn-s,.btn-pdf,.btn-docx,.btn-pres{font-size:.79rem;padding:12px 14px}
+  .gneft-badge{font-size:.61rem;padding:2px 6px}
+  .tab{font-size:.71rem;padding:7px 10px}
+  .pp-item,.adv-card,.app-card,.ap{padding:12px 10px}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABLETS  600 px – 1024 px  (iPad, iPad mini, Android tablets)
+   ═══════════════════════════════════════════════════════════ */
+@media(min-width:600px) and (max-width:1024px){
+  section{padding:72px 6%}
+  .contact-bg{padding:72px 6%}
+  .hero-content{padding:100px 6% 64px}
+
+  /* Nav */
+  nav{height:64px}
+  .hero{min-height:calc(100dvh - 64px)}
+  .nav-links{top:64px}
+
+  /* Restore 2-column layouts that collapsed at 680px */
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-subgrid{grid-template-columns:1fr 1fr}
+  .c-list{grid-template-columns:1fr 1fr}
+  .adv-grid{grid-template-columns:1fr 1fr}
+  .app-grid{grid-template-columns:1fr 1fr}
+  .show-2col,.gallery-grid{grid-template-columns:1fr 1fr}
+  .assembly{grid-template-columns:1fr 1fr}
+  .transport-grid{grid-template-columns:1fr 1fr}
+  .numbers{grid-template-columns:repeat(4,1fr)}
+
+  /* Hero buttons: wrap nicely */
+  .hero-btns{flex-wrap:wrap;gap:12px}
+  .btn-p,.btn-s,.btn-pdf,.btn-docx,.btn-pres{padding:13px 20px}
+
+  /* Numbers */
+  .num{padding:26px 10px}
+  .nv{font-size:1.7rem}
+
+  /* Cards — slightly more padding than mobile */
+  .adv-card,.app-card{padding:22px 18px}
+  .pp-item{padding:16px 18px}
+}
 </style>
 </head>
 <body>
