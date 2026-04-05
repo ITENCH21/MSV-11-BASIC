@@ -405,7 +405,9 @@ section{padding:96px 8%}
 .nl{font-size:.72rem;color:rgba(255,255,255,.8);margin-top:5px;letter-spacing:.5px;text-transform:uppercase}
 
 .adv-bg{background:#edf2f7}
-.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:22px}
+.adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:960px){.adv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.adv-grid{grid-template-columns:1fr}}
 .adv-card{background:#e8ecf1;border:none;
   border-top:4px solid var(--accent);border-radius:20px;
   padding:28px 24px;transition:.25s;position:relative;overflow:hidden;
