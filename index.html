@@ -259,10 +259,28 @@ section{padding:96px 8%}
 .sol-li:last-child{border:none}
 .sol-li::before{content:'✓';color:var(--orange);font-weight:800;flex-shrink:0}
 
-.show-wrap{background:var(--bg);position:relative}
+.show-wrap{background:#e8ecf1;position:relative}
+.vessel-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(24px,3vw,48px);align-items:start}
+.vessel-gallery{min-width:0}
+.vessel-header{margin-bottom:32px}
+.vessel-specs-panel{
+  background:var(--navy);border-radius:20px;padding:28px 24px;
+  box-shadow:10px 10px 22px rgba(163,177,198,.65),-10px -10px 22px rgba(255,255,255,.95);
+  max-height:560px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--orange) transparent;
+  position:sticky;top:80px;
+}
+.vessel-specs-panel::-webkit-scrollbar{width:4px}
+.vessel-specs-panel::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+.vsp-head{margin-bottom:4px}
+.vsp-table .sr{display:grid;grid-template-columns:.9fr 1.1fr;border-bottom:1px solid rgba(255,255,255,.07)}
+.vsp-table .sr:last-child{border-bottom:none}
+.vsp-table .sk{padding:10px 12px;font-size:.78rem;font-weight:600;color:#88BBDD;border-right:1px solid rgba(255,255,255,.07)}
+.vsp-table .sv{padding:10px 12px;font-size:.78rem;color:#ccd6e0}
+.vsp-table .sv strong{color:var(--orange)}
+@media(max-width:860px){.vessel-grid{grid-template-columns:1fr}.vessel-specs-panel{max-height:none}}
 
 /* ── Showcase gallery ── */
-.showcase{max-width:960px;margin:0 auto}
+.showcase{max-width:100%;margin:0}
 .showcase-main{
   position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.1), 0 12px 40px rgba(27,42,56,.15);margin-bottom:16px;background:#0d1820;
@@ -1094,11 +1112,16 @@ footer span{font-size:.78rem;color:#4a5a68}
 </section>
 
 <section class="show-wrap" id="vessel">
-  <div class="s-label">Галерея судна</div>
-  <h2 class="s-title">MSV-11 <span>в деталях</span></h2>
-  <div class="divider"></div>
-
-  <div class="showcase" id="showcase" data-showcase>
+  <div class="vessel-header">
+    <div>
+      <div class="s-label">Галерея судна</div>
+      <h2 class="s-title">MSV-11 <span>в деталях</span></h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="vessel-grid">
+    <div class="vessel-gallery">
+      <div class="showcase" id="showcase" data-showcase>
     <div class="showcase-main">
       <img class="active" src="assets/images/msv-moving.png"            data-caption="MSV-11 в движении">
       <img src="assets/images/msv-three-quarter-sunset.png" data-caption="На закате">
@@ -1124,6 +1147,43 @@ footer span{font-size:.78rem;color:#4a5a68}
       <button class="showcase-pause" id="showcasePause" title="Пауза / Воспроизведение">&#10074;&#10074;</button>
     </div>
     <div class="showcase-thumbs" id="showcaseThumbs"></div>
+      </div>
+    </div>
+
+    <div class="vessel-specs-panel" id="specs">
+      <div class="vsp-head">
+        <div class="s-label" style="font-size:.75rem;margin-bottom:4px">Технические характеристики</div>
+        <h3 style="color:#fff;font-size:1.15rem;margin:0 0 12px">Ключевые <span style="color:var(--orange)">ТТХ</span></h3>
+      </div>
+      <div class="spec-table vsp-table">
+        <div class="sr"><div class="sk">Длина</div><div class="sv"><strong>11 м</strong></div></div>
+        <div class="sr"><div class="sk">Ширина</div><div class="sv"><strong>~4,5 м</strong></div></div>
+        <div class="sr"><div class="sk">Материал корпуса</div><div class="sv">Алюминий, заполнен <strong>пенопластом</strong></div></div>
+        <div class="sr"><div class="sk">Водоизмещение</div><div class="sv"><strong>~5 т</strong></div></div>
+        <div class="sr"><div class="sk">Рубка</div><div class="sv"><strong>3 чел.</strong> (капитан, оператор ТНПА, пробоотборщик)</div></div>
+        <div class="sr"><div class="sk">Двигатели</div><div class="sv"><strong>2 подвесных × 300 л/с</strong></div></div>
+        <div class="sr"><div class="sk">Подрульки</div><div class="sv"><strong>2 шт.</strong></div></div>
+        <div class="sr"><div class="sk">Система DP</div><div class="sv"><strong>DP1</strong></div></div>
+        <div class="sr"><div class="sk">АИС</div><div class="sv"><strong>Класс А</strong></div></div>
+        <div class="sr"><div class="sk">Радиостанции</div><div class="sv"><strong>УКВ, ПВ/КВ</strong></div></div>
+        <div class="sr"><div class="sk">Эхолот</div><div class="sv">Навигационный + <strong>многолучевой (опц.)</strong></div></div>
+        <div class="sr"><div class="sk">Метеостанция</div><div class="sv"><strong>Бортовая</strong></div></div>
+        <div class="sr"><div class="sk">Радар</div><div class="sv"><strong>Навигационный</strong></div></div>
+        <div class="sr"><div class="sk">Якорное устройство</div><div class="sv"><strong>Есть</strong></div></div>
+        <div class="sr"><div class="sk">П-образная мачта</div><div class="sv">Наклонная, для <strong>спуска оборудования</strong></div></div>
+        <div class="sr"><div class="sk">Ходовые огни</div><div class="sv">По правилам <strong>МППСС</strong></div></div>
+        <div class="sr"><div class="sk">Спасательный плот</div><div class="sv">Надувной в контейнере</div></div>
+        <div class="sr"><div class="sk">Спасательные круги</div><div class="sv">По нормам <strong>РМРС</strong></div></div>
+        <div class="sr"><div class="sk">Генератор</div><div class="sv"><strong>Дизель-генератор</strong></div></div>
+        <div class="sr"><div class="sk">Лебёдки</div><div class="sv"><strong>2 шт.</strong></div></div>
+        <div class="sr"><div class="sk">Манипулятор</div><div class="sv"><strong>Опционально</strong></div></div>
+        <div class="sr"><div class="sk">Спутниковая связь</div><div class="sv"><strong>Опционально</strong></div></div>
+        <div class="sr"><div class="sk">Подводная навигация</div><div class="sv"><strong>USBL</strong> — опционально</div></div>
+        <div class="sr"><div class="sk">Район плавания</div><div class="sv"><strong>Неограниченный</strong></div></div>
+        <div class="sr"><div class="sk">Транспортировка</div><div class="sv"><strong>3 контейнера 40 фут.</strong></div></div>
+        <div class="sr"><div class="sk">Класс РС</div><div class="sv"><strong>Российский МРС</strong></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1165,36 +1225,6 @@ footer span{font-size:.78rem;color:#4a5a68}
   </div>
 </section>
 
-<section class="specs-bg" id="specs">
-  <div class="s-label">Технические характеристики</div>
-  <h2 class="s-title">Ключевые <span>ТТХ</span></h2>
-  <div class="divider"></div>
-  <div class="spec-table">
-    <div class="sr"><div class="sk">Длина</div><div class="sv"><strong>11 м</strong></div></div>
-    <div class="sr"><div class="sk">Ширина</div><div class="sv"><strong>~4,5 м</strong></div></div>
-    <div class="sr"><div class="sk">Материал корпуса</div><div class="sv">Алюминий, заполнен <strong>пенопластом</strong></div></div>
-    <div class="sr"><div class="sk">Водоизмещение</div><div class="sv"><strong>~5 т</strong></div></div>
-    <div class="sr"><div class="sk">Рубка</div><div class="sv"><strong>3 чел.</strong> (капитан, оператор ТНПА, пробоотборщик)</div></div>
-    <div class="sr"><div class="sk">Двигатели</div><div class="sv"><strong>2 подвесных × 300 л/с</strong></div></div>
-    <div class="sr"><div class="sk">Подрульки</div><div class="sv"><strong>2 шт.</strong></div></div>
-    <div class="sr"><div class="sk">Система DP</div><div class="sv"><strong>DP1</strong></div></div>
-    <div class="sr"><div class="sk">АИС</div><div class="sv"><strong>Класс А</strong></div></div>
-    <div class="sr"><div class="sk">Радиостанции</div><div class="sv"><strong>УКВ, ПВ/КВ</strong></div></div>
-    <div class="sr"><div class="sk">Эхолот</div><div class="sv">Навигационный + <strong>многолучевой (опц.)</strong></div></div>
-    <div class="sr"><div class="sk">Метеостанция</div><div class="sv"><strong>Бортовая</strong></div></div>
-    <div class="sr"><div class="sk">Радар</div><div class="sv"><strong>Навигационный</strong></div></div>
-    <div class="sr"><div class="sk">Якорное устройство</div><div class="sv"><strong>Есть</strong></div></div>
-    <div class="sr"><div class="sk">П-образная мачта</div><div class="sv">Наклонная, для <strong>спуска оборудования</strong></div></div>
-    <div class="sr"><div class="sk">Ходовые огни</div><div class="sv">По правилам <strong>МППСС</strong></div></div>
-    <div class="sr"><div class="sk">Спасательный плот</div><div class="sv">Надувной в контейнере</div></div>
-    <div class="sr"><div class="sk">Спасательные круги</div><div class="sv">По нормам <strong>РМРС</strong></div></div>
-    <div class="sr"><div class="sk">Генератор</div><div class="sv"><strong>Дизель-генератор</strong></div></div>
-    <div class="sr"><div class="sk">Лебёдки</div><div class="sv"><strong>2 шт.</strong></div></div>
-    <div class="sr"><div class="sk">Манипулятор</div><div class="sv"><strong>Опционально</strong></div></div>
-    <div class="sr"><div class="sk">Спутниковая связь</div><div class="sv"><strong>Опционально</strong></div></div>
-    <div class="sr"><div class="sk">Подводная навигация</div><div class="sv"><strong>USBL</strong> — опционально</div></div>
-  </div>
-</section>
 
 <!-- ══════════ UNIVERSAL PLATFORM SECTION ══════════ -->
 <section class="platform-bg" id="platform">
