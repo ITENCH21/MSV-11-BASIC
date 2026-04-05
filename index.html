@@ -574,9 +574,10 @@ section{padding:96px 8%}
 .timeline{position:relative;display:flex;flex-direction:column;gap:0;padding-left:0}
 .timeline::before{
   content:'';position:absolute;left:27px;top:10px;bottom:28px;width:2px;
-  background:linear-gradient(180deg,var(--orange),var(--accent));
+  background:linear-gradient(180deg,var(--orange),var(--accent) 85%,transparent);
 }
 .tl-item{display:flex;gap:26px;align-items:flex-start;padding-bottom:34px;position:relative}
+.tl-item:last-child{padding-bottom:0}
 .tl-dot{
   width:54px;height:54px;border-radius:50%;flex-shrink:0;
   background:var(--navy);border:3px solid var(--orange);z-index:1;
