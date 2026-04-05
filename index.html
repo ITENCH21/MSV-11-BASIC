@@ -105,7 +105,7 @@
     linear-gradient(180deg,#0f1a24,#0d1319);
   --video-glow-o:.35;--video-glow-bl:.25;--video-glow-far:.18;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{
   font-family:var(--ff);color:var(--dark);background:var(--bg);line-height:1.6;overflow-x:hidden;
   color-scheme:light dark;
@@ -908,7 +908,7 @@ footer span{font-size:.78rem;color:#4a5a68}
   .hero-btns{flex-direction:column}
   .btn-p,.btn-s,.btn-pdf,.btn-docx,.btn-pres{width:100%;text-align:center;justify-content:center}
   .tab-bar{
-    flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;margin-right:-5%;padding-right:5%;
+    flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;
     scrollbar-width:none;
   }
   .tab-bar::-webkit-scrollbar{display:none}
