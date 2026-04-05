@@ -263,11 +263,13 @@ section{padding:96px 8%}
 .vessel-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(24px,3vw,48px);align-items:stretch}
 .vessel-gallery{min-width:0;filter:drop-shadow(0 8px 32px rgba(27,42,56,.18)) drop-shadow(0 2px 8px rgba(27,42,56,.10))}
 .vessel-header{margin-bottom:32px}
+.vessel-specs-wrap{position:relative;min-height:0}
 .vessel-specs-panel{
+  position:absolute;inset:0;
   background:var(--navy);border-radius:20px;padding:28px 24px;
   box-shadow:0 8px 32px rgba(27,42,56,.28),0 2px 8px rgba(27,42,56,.18),0 32px 64px rgba(27,42,56,.12);
   overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--orange) transparent;
-  box-sizing:border-box;min-height:0;
+  box-sizing:border-box;
 }
 .vessel-specs-panel::-webkit-scrollbar{width:4px}
 .vessel-specs-panel::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
@@ -1153,6 +1155,7 @@ footer span{font-size:.78rem;color:#4a5a68}
       </div>
     </div>
 
+    <div class="vessel-specs-wrap">
     <div class="vessel-specs-panel" id="specs">
       <div class="vsp-head">
         <div class="s-label" style="font-size:.75rem;margin-bottom:4px">Технические характеристики</div>
@@ -1186,6 +1189,7 @@ footer span{font-size:.78rem;color:#4a5a68}
         <div class="sr"><div class="sk">Транспортировка</div><div class="sv"><strong>3 контейнера 40 фут.</strong></div></div>
         <div class="sr"><div class="sk">Класс РС</div><div class="sv"><strong>Российский МРС</strong></div></div>
       </div>
+    </div>
     </div>
   </div>
 </section>
